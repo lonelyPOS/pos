@@ -1,11 +1,11 @@
 <?php
 
-class Account
+class Employee
 {
 
-    private $id, $pass, $type, $email, $fname, $lname, $gender, $tel;
+    private $id, $pass, $type, $email, $fname, $lname, $gender, $citID, $tel;
 
-    public function __construct($id, $pass, $type, $email, $fname, $lname, $gender, $tel)
+    public function __construct($id, $pass, $type, $email, $fname, $lname, $gender, $citID, $tel)
     {
         $this->id = $id;
         $this->pass = $pass;
@@ -14,6 +14,7 @@ class Account
         $this->fname = $fname;
         $this->lname = $lname;
         $this->gender = $gender;
+        $this->citID = $citID;
         $this->tel = $tel;
     }
 
@@ -96,5 +97,7 @@ class Account
     {
         $this->tel = tel;
     }
+    
+    
 }
 ?>

@@ -7,11 +7,12 @@
 	<div class="menu-sidebar__content js-scrollbar1">
 		<nav class="navbar-sidebar">
 			<ul class="list-unstyled navbar__list">
-				<li class="active has-sub"><a class="js-arrow" href="index.php"> <i
-						class="fas fa-desktop"></i>Dashboard
-				</a>
+				<li class="<?php if($page === 'index') { echo 'active';}?>">
+				<a class="js-arrow" href="index.php"> <i class="fas fa-desktop"></i>Dashboard</a>
 				<li>
-				<li><a href="pos.php"> <i class="fas fa-rocket"></i>POS</a></li>
+				<li class="<?php if($page === 'pos') { echo 'active';}?>">
+				<a href="pos.php"> <i class="fas fa-rocket"></i>POS</a>
+				</li>
 			</ul>
 		</nav>
 	</div>

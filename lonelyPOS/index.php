@@ -1,3 +1,12 @@
+<?php 
+    require 'includes/autoload.php';
+    if(!$session_set){
+        echo "<script> document.location.href=\"login.php\";</script>";
+    }
+    $_SESSION['PAGE'] = 'index';
+    session_write_close();
+    $page = $_SESSION['PAGE'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -616,7 +625,6 @@
 		</div>
 
 	</div>
-
 	<!-- Jquery JS-->
 	<script src="vendor/jquery-3.2.1.min.js"></script>
 	<!-- Bootstrap JS-->
@@ -635,8 +643,7 @@
 	<script src="vendor/circle-progress/circle-progress.min.js"></script>
 	<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 	<script src="vendor/chartjs/Chart.bundle.min.js"></script>
-	<script src="vendor/select2/select2.min.js">
-    </script>
+	<script src="vendor/select2/select2.min.js"></script>
 
 	<!-- Main JS-->
 	<script src="js/main.js"></script>

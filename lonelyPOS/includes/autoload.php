@@ -7,7 +7,4 @@ function __autoload($class_name) {
     }
 }
 require 'session.php';
-if ($session_set) {
-    $acc = $_SESSION['ACC'];
-}
 ?>

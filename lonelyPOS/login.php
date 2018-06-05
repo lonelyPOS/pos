@@ -1,6 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
+<?php 
+    require 'includes/autoload.php';
+    if($session_set){
+        echo "<script> document.location.href=\"index.php\";</script>";
+    }
+?>
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">

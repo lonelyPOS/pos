@@ -1,24 +1,25 @@
 <?php
+
 class LoginMgnt
 {
-    public static function loginAuth($acc_id, $acc_pass)
+
+    public static function loginAuth($user, $pass)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        if ($acc_id != "" && $acc_pass != "") {
-            $sql = "SELECT * FROM ACCOUNT WHERE ACC_ID = '" . $acc_id . "' AND ACC_PASS ='" . $acc_pass . "' ";
-            $query = $conn->query($sql);
-            $result = $query->fetch_assoc();
-            if ($result) {
-                $acc = new Account($result["ACC_ID"], $result["ACC_PASS"], $result["ACC_TYPE"], $result["ACC_EMAIL"], $result["ACC_FNAME"], $result["ACC_LNAME"], $result["ACC_GENDER"], $result["ACC_TEL"]);
-                $conn->close();
-                return $acc;
-            }
+        $user = $conn->real_escape_string($user);
+        $pass = $conn->real_escape_string($pass);
+        $sql = "SELECT * FROM Employee WHERE USERNAME = '$user' AND PASSWORD ='$pass' ";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+        if ($result) {
+            $acc = new Employee($result["USERNAME"], $result["PASSWORD"], $result["TYPE"], $result["EMAIL"], $result["FNAME"], $result["LNAME"], $result["GENDER"], $result["CITIZEN_ID"], $result["TEL"]);
+            $conn->close();
+            return $acc;
         }
-        $conn->close();
         return null;
     }
-    
+
     public static function logout()
     {
         session_start();

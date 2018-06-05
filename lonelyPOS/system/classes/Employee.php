@@ -97,7 +97,15 @@ class Employee
     {
         $this->tel = tel;
     }
-    
-    
+
+    public function getCitID()
+    {
+        return $this->citID;
+    }
+
+    public function setCitID($citID)
+    {
+        $this->citID = $citID;
+    }
 }
 ?>

@@ -1,4 +1,3 @@
-<!-- HEADER DESKTOP-->
 <header class="header-desktop">
 	<div class="section__content section__content--p30">
 		<div class="container-fluid">
@@ -103,7 +102,7 @@
 		</div>
 	</div>
 </header>
-<!-- HEADER DESKTOP-->
+
     <script type="text/javascript">
         var tday=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
         var tmonth=new Array("January","February","March","April","May","June","July","August","September","October","November","December");

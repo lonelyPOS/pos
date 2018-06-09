@@ -3,7 +3,7 @@ require 'includes/autoload.php';
 if (! $session_set) {
     echo "<script> document.location.href=\"login.php\";</script>";
 }
-$_SESSION['PAGE'] = 'pos';
+$_SESSION['PAGE'] = 'listproduct';
 session_write_close();
 $page = $_SESSION['PAGE'];
 ?>

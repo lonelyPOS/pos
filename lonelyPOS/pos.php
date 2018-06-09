@@ -1,6 +1,6 @@
 <?php
 require 'includes/autoload.php';
-if(!$session_set){
+if (! $session_set) {
     echo "<script> document.location.href=\"login.php\";</script>";
 }
 $_SESSION['PAGE'] = 'pos';
@@ -56,27 +56,229 @@ $page = $_SESSION['PAGE'];
 
 <body class="animsition">
 	<div class="page-wrapper">
-			 <!-- HEADER MOBILE-->
+		<!-- HEADER MOBILE-->
         	<?php require 'includes/header_m.php';?>
 			<!-- END HEADER MOBILE-->
-			
-			<!-- MENU SIDEBAR-->
+
+		<!-- MENU SIDEBAR-->
 			<?php require 'includes/menu.php';?>
 			<!-- END MENU SIDEBAR-->
-			
-			<!-- PAGE CONTAINER-->
+
+		<!-- PAGE CONTAINER-->
 		<div class="page-container">
 			<?php require 'includes/header.php';?>
 			<!-- MAIN CONTENT-->
 			<div class="main-content">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
-						<div class = "row">
+						<div class="row">
 							<!-- workspace -->
-							sdsdsdds
+							<div class="col-lg-4">
+								<!--panel-->
+								<div class="card">
+									<div class="card-header">Panel</div>
+									<div class="card-body">
+										<form action="#" method="post">
+											<div class="form-group">
+												<div class="input-group">
+													<input id="member" name="member_code" type="text"
+														class="form-control" aria-required="true"
+														aria-invalid="false" placeholder="Member Code">
+													<div class="input-group-btn">
+														<button type="button" class="btn btn-primary"
+															data-toggle="modal" data-target="#member_add">
+															<i class="fa fa-plus"></i>
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<input id="b_code" name="b_code" type="text"
+													class="form-control" aria-required="true"
+													aria-invalid="false" placeholder="Scan barcode">
+											</div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-4"></div>
+											<div class="row mt-3"></div>
+											<div class="table-responsive">
+												<table class="table table-top-campaign">
+													<tbody>
+														<tr>
+															<td>Total Items</td>
+															<td>10</td>
+														</tr>
+														<tr>
+															<td>Total</td>
+															<td>$20,366.96</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="row">
+												<div class="col-lg-6">
+													<button type="button" class="btn btn-danger btn-lg btn-block"">Cancel</button>
+												</div>
+												<div class="col-lg-6">
+													<button type="button" class="btn btn-success btn-lg btn-block"">Payment</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-8">
+								<!--items-->
+								<div class="table-responsive m-b-40">
+									<table class="table table-borderless table-data3">
+										<thead>
+											<tr>
+												<th>Product</th>
+												<th>Price</th>
+												<th>Qty</th>
+												<th>Sub total</th>
+												<th>
+													<div class="table-data-feature">
+														<button class="item" data-toggle="tooltip"
+															data-placement="top" title="Delete" disabled>
+															<i class="zmdi zmdi-delete"></i>
+														</button>
+													</div>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>iPhone X 64Gb Grey</td>
+												<td>$999.00</td>
+												<td>10</td>
+												<td>$999.00</td>
+												<td>
+													<div class="table-data-feature">
+														<button class="item" data-toggle="tooltip"
+															data-placement="top" title="Delete">
+															<i class="zmdi zmdi-delete"></i>
+														</button>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>Macbook Pro Retina 2017</td>
+												<td>$10.00</td>
+												<td>20</td>
+												<td>$10.00</td>
+												<td>
+													<div class="table-data-feature">
+														<button class="item" data-toggle="tooltip"
+															data-placement="top" title="Delete">
+															<i class="zmdi zmdi-delete"></i>
+														</button>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
+
+				<!-- modal member_add -->
+				<div class="modal fade" id="member_add" tabindex="-1" role="dialog"
+					aria-labelledby="staticModalLabel" aria-hidden="true"
+					data-backdrop="static">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticModalLabel">Add Member</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="" method="post" novalidate="novalidate">
+									<div class="row">
+										<div class="col-6">
+											<div class="form-group">
+												<label for="m_fname" class="control-label mb-1">Firstname</label>
+												<input id="m_fname" name="m_fname" type="text"
+													class="form-control" aria-required="true"
+													aria-invalid="false" placeholder="Firstname" />
+											</div>
+										</div>
+										<div class="col-6">
+											<label for="m_lname" class="control-label mb-1">Lastname</label>
+											<div class="input-group">
+												<input id="m_lname" name="m_lname" type="text"
+													class="form-control" aria-required="true"
+													aria-invalid="false" placeholder="lasrname" />
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="m_email" class="control-label mb-1">Email</label>
+										<div class="input-group">
+											<input id="m_email" name="m_email" type="text"
+												class="form-control" aria-required="true"
+												aria-invalid="false" placeholder="Email" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="m_adds" class="control-label mb-1">Address</label>
+										<div class="input-group">
+											<input id="m_adds" name="m_adds" type="text"
+												class="form-control" aria-required="true"
+												aria-invalid="false" placeholder="Address" />
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-6">
+											<div class="form-group">
+												<label for="m_tel" class="control-label mb-1">Tel</label> <input
+													id="m_tel" name="m_tel" type="text" class="form-control"
+													aria-required="true" aria-invalid="false" placeholder="Tel" />
+											</div>
+										</div>
+										<div class="col-6">
+											<div class="form-group">
+												<label for="m_lname" class="control-label mb-1">Gender</label>
+												<select name="m_gender" id="m_gender" class="form-control">
+													<option value="m">Male</option>
+													<option value="f">Female</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger btn-sm"
+									data-dismiss="modal">
+									<i class="fa fa-ban"></i> Cancel
+								</button>
+								<button type="button" class="btn btn-primary btn-sm">
+									<i class="fa fa-dot-circle-o"></i> Confirm
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end modal static -->
+
 			</div>
 			<!-- END MAIN CONTENT-->
 			<!-- END PAGE CONTAINER-->

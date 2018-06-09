@@ -71,37 +71,72 @@ $page = $_SESSION['PAGE'];
 			<div class="main-content">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
-						
-							<div class="row">
-								<div class="col-lg-12">
-									<h2 class="title-1 m-b-25">List Product</h2>
-									<div class="table-responsive table--no-card m-b-40">
-										<table
-											class="table table-borderless table-striped table-earning">
-											<thead>
-												<tr>
-													<th>brand</th>
-													<th>name</th>
-													<th>size</th>
-													<th>color</th>
-													<th class="text-right">price</th>
-													<th class="text-right">quantity</th>
-													<th></th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
 
-													<td>apple</td>
-													<td>iPhone X</td>
-													<td>xl</td>
-													<td>blue</td>
-													<td class="text-right">$999.00</td>
-													<td class="text-right"><input type="text" id="xx" name="xx"
-														value="1" size="1" /></td>
+						<div class="row">
+							<div class="col-lg-12">
+								<h2 class="title-1 m-b-25">List Product</h2>
+								<div class="table-responsive table--no-card m-b-40">
+									<table
+										class="table table-borderless table-striped table-earning">
+										<thead>
+											<tr>
+												<th>brand</th>
+												<th>name</th>
+												<th>size</th>
+												<th>color</th>
+												<th class="text-right">price</th>
+												<th class="text-right">quantity</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+
+												<td>apple</td>
+												<td>iPhone X</td>
+												<td>xl</td>
+												<td>blue</td>
+												<td class="text-right">$999.00</td>
+												<td class="text-right"><input type="text" id="xx" name="xx"
+													value="1" size="1" /></td>
 
 
-													<td class="text-right">
+												<td class="text-right">
+													<div class="table-data-feature">
+														<button type="button" class="btn btn-secondary mb-1"
+															data-toggle="modal" data-target="#staticModal2"
+															data-placement="top" title="Edit">
+															<i class="zmdi zmdi-edit"></i>
+
+														</button>
+														&nbsp;
+														<button type="button" class="btn btn-secondary mb-1"
+															data-toggle="modal" data-target="#staticModal"
+															data-placement="top" title="Delete">
+															<i class="zmdi zmdi-delete"></i>
+
+														</button>
+														&nbsp;
+														<button type="button" class="btn btn-secondary mb-1"
+															data-toggle="modal" data-target="#largeModal"
+															data-placement="top" title="Detail">
+															<i class="zmdi zmdi-more"></i>
+
+														</button>
+
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>apple</td>
+												<td>iPhone X</td>
+												<td>xl</td>
+												<td>blue</td>
+												<td class="text-right">$999.00</td>
+												<td class="text-right"><input type="text" id="xx" name="xx"
+													value="1" size="1" /></td>
+												<td class="text-right">
+													<div class="table-data-feature">
 														<div class="table-data-feature">
 															<button type="button" class="btn btn-secondary mb-1"
 																data-toggle="modal" data-target="#staticModal2"
@@ -123,122 +158,87 @@ $page = $_SESSION['PAGE'];
 																<i class="zmdi zmdi-more"></i>
 
 															</button>
-
 														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>apple</td>
-													<td>iPhone X</td>
-													<td>xl</td>
-													<td>blue</td>
-													<td class="text-right">$999.00</td>
-													<td class="text-right"><input type="text" id="xx" name="xx"
-														value="1" size="1" /></td>
-													<td class="text-right">
+												
+												</td>
+											</tr>
+											<tr>
+												<td>apple</td>
+												<td>iPhone X</td>
+												<td>xl</td>
+												<td>blue</td>
+												<td class="text-right">$999.00</td>
+												<td class="text-right"><input type="text" id="xx" name="xx"
+													value="1" size="1" /></td>
+
+												<td class="text-right">
+													<div class="table-data-feature">
 														<div class="table-data-feature">
-															<div class="table-data-feature">
-																<button type="button" class="btn btn-secondary mb-1"
-																	data-toggle="modal" data-target="#staticModal2"
-																	data-placement="top" title="Edit">
-																	<i class="zmdi zmdi-edit"></i>
+															<button type="button" class="btn btn-secondary mb-1"
+																data-toggle="modal" data-target="#staticModal2"
+																data-placement="top" title="Edit">
+																<i class="zmdi zmdi-edit"></i>
 
-																</button>
-																&nbsp;
-																<button type="button" class="btn btn-secondary mb-1"
-																	data-toggle="modal" data-target="#staticModal"
-																	data-placement="top" title="Delete">
-																	<i class="zmdi zmdi-delete"></i>
+															</button>
+															&nbsp;
+															<button type="button" class="btn btn-secondary mb-1"
+																data-toggle="modal" data-target="#staticModal"
+																data-placement="top" title="Delete">
+																<i class="zmdi zmdi-delete"></i>
 
-																</button>
-																&nbsp;
-																<button type="button" class="btn btn-secondary mb-1"
-																	data-toggle="modal" data-target="#largeModal"
-																	data-placement="top" title="Detail">
-																	<i class="zmdi zmdi-more"></i>
+															</button>
+															&nbsp;
+															<button type="button" class="btn btn-secondary mb-1"
+																data-toggle="modal" data-target="#largeModal"
+																data-placement="top" title="Detail">
+																<i class="zmdi zmdi-more"></i>
 
-																</button>
-															</div>
-													
-													</td>
-												</tr>
-												<tr>
-													<td>apple</td>
-													<td>iPhone X</td>
-													<td>xl</td>
-													<td>blue</td>
-													<td class="text-right">$999.00</td>
-													<td class="text-right"><input type="text" id="xx" name="xx"
-														value="1" size="1" /></td>
+															</button>
+														</div>
+												
+												</td>
+											</tr>
+											<tr>
+												<td>apple</td>
+												<td>iPhone X</td>
+												<td>xl</td>
+												<td>blue</td>
+												<td class="text-right">$999.00</td>
+												<td class="text-right"><input type="text" id="xx" name="xx"
+													value="1" size="1" /></td>
 
-													<td class="text-right">
+												<td class="text-right">
+													<div class="table-data-feature">
 														<div class="table-data-feature">
-															<div class="table-data-feature">
-																<button type="button" class="btn btn-secondary mb-1"
-																	data-toggle="modal" data-target="#staticModal2"
-																	data-placement="top" title="Edit">
-																	<i class="zmdi zmdi-edit"></i>
+															<button type="button" class="btn btn-secondary mb-1"
+																data-toggle="modal" data-target="#staticModal2"
+																data-placement="top" title="Edit">
+																<i class="zmdi zmdi-edit"></i>
 
-																</button>
-																&nbsp;
-																<button type="button" class="btn btn-secondary mb-1"
-																	data-toggle="modal" data-target="#staticModal"
-																	data-placement="top" title="Delete">
-																	<i class="zmdi zmdi-delete"></i>
+															</button>
+															&nbsp;
+															<button type="button" class="btn btn-secondary mb-1"
+																data-toggle="modal" data-target="#staticModal"
+																data-placement="top" title="Delete">
+																<i class="zmdi zmdi-delete"></i>
 
-																</button>
-																&nbsp;
-																<button type="button" class="btn btn-secondary mb-1"
-																	data-toggle="modal" data-target="#largeModal"
-																	data-placement="top" title="Detail">
-																	<i class="zmdi zmdi-more"></i>
+															</button>
+															&nbsp;
+															<button type="button" class="btn btn-secondary mb-1"
+																data-toggle="modal" data-target="#largeModal"
+																data-placement="top" title="Detail">
+																<i class="zmdi zmdi-more"></i>
 
-																</button>
-															</div>
-													
-													</td>
-												</tr>
-												<tr>
-													<td>apple</td>
-													<td>iPhone X</td>
-													<td>xl</td>
-													<td>blue</td>
-													<td class="text-right">$999.00</td>
-													<td class="text-right"><input type="text" id="xx" name="xx"
-														value="1" size="1" /></td>
+															</button>
+												
+												</td>
 
-													<td class="text-right">
-														<div class="table-data-feature">
-															<div class="table-data-feature">
-																<button type="button" class="btn btn-secondary mb-1"
-																	data-toggle="modal" data-target="#staticModal2"
-																	data-placement="top" title="Edit">
-																	<i class="zmdi zmdi-edit"></i>
-
-																</button>
-																&nbsp;
-																<button type="button" class="btn btn-secondary mb-1"
-																	data-toggle="modal" data-target="#staticModal"
-																	data-placement="top" title="Delete">
-																	<i class="zmdi zmdi-delete"></i>
-
-																</button>
-																&nbsp;
-																<button type="button" class="btn btn-secondary mb-1"
-																	data-toggle="modal" data-target="#largeModal"
-																	data-placement="top" title="Detail">
-																	<i class="zmdi zmdi-more"></i>
-
-																</button>
-													
-													</td>
-
-												</tr>
-											</tbody>
-										</table>
+											</tr>
+										</tbody>
+									</table>
 
 
-									
+
 
 								</div>
 							</div>
@@ -287,74 +287,98 @@ $page = $_SESSION['PAGE'];
 							</button>
 						</div>
 						<div class="modal-body">
-							<div class="col-lg-4"></div>
-							<div class="col-lg-8">
-								<div class="table-responsive table--no-card m-b-40">
-									<table
-										class="table table-borderless table-striped table-earning">
-										<tbody>
-											<tr>
-												<th>order ID</th>
-												<td>100398</td>
-											</tr>
-											<tr>
-												<th>order ID</th>
-												<td>order ID</td>
-											</tr>
-										</tbody>
-									</table>
+							<div class="row">
+								<div class="col-lg-4">
+									<img
+										src="https://store.storeimages.cdn-apple.com/8754/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/x/iphone-x-silver-select-2017?wid=305&hei=358&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1515602510472"
+										alt="..." class="img-responsive" />
+								</div>
+									
+									<div class="col-lg-8">
+										<div class="table-responsive table--no-card m-b-40">
+											<table
+												class="table table-borderless table-striped table-earning">
+												<tbody>
+													<tr>
+														<th>Product ID</th>
+														<td>100398</td>
+													</tr>
+													<tr>
+														<th>brand</th>
+														<td>order ID</td>
+													</tr>
+													<tr>
+														<th>Name</th>
+														<td>order ID</td>
+													</tr>
+													<tr>
+														<th>size</th>
+														<td>order ID</td>
+													</tr>
+													<tr>
+														<th>color</th>
+														<td>order ID</td>
+													</tr>
+													<tr>
+														<th>price</th>
+														<td>order ID</td>
+													</tr>
+													<tr>
+														<th>description</th>
+														<td>sdfssadsadasasasa</td>
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+
 								</div>
 							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-									data-dismiss="modal">Cancel</button>
-								<button type="button" class="btn btn-primary">Confirm</button>
-							</div>
 						</div>
-					</div>
-				</div>
-				<div class="modal fade" id="staticModal" tabindex="-1" role="dialog"
-					aria-labelledby="staticModalLabel" aria-hidden="true"
-					data-backdrop="static">
-					<div class="modal-dialog modal-sm" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="staticModalLabel">Confirm to delete?</h5>
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
+						<div class="modal fade" id="staticModal" tabindex="-1"
+							role="dialog" aria-labelledby="staticModalLabel"
+							aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticModalLabel">Confirm to
+											delete?</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
 
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-									data-dismiss="modal">Cancel</button>
-								<button type="button" class="btn btn-primary">Confirm</button>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">Cancel</button>
+										<button type="button" class="btn btn-primary">Confirm</button>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="modal fade" id="staticModal2" tabindex="-1"
-					role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
-					data-backdrop="static">
-					<div class="modal-dialog modal-sm" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="staticModalLabel">Confirm to edit?</h5>
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
+						<div class="modal fade" id="staticModal2" tabindex="-1"
+							role="dialog" aria-labelledby="staticModalLabel"
+							aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="staticModalLabel">Confirm to edit?</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
 
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary"
-									data-dismiss="modal">Cancel</button>
-								<button type="button" class="btn btn-primary">Confirm</button>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">Cancel</button>
+										<button type="button" class="btn btn-primary">Confirm</button>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-				</div>
 
 </body>
 

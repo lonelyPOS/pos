@@ -71,9 +71,7 @@ $page = $_SESSION['PAGE'];
 			<div class="main-content">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
-						<div class="row">
-
-
+						
 							<div class="row">
 								<div class="col-lg-12">
 									<h2 class="title-1 m-b-25">List Product</h2>
@@ -82,9 +80,10 @@ $page = $_SESSION['PAGE'];
 											class="table table-borderless table-striped table-earning">
 											<thead>
 												<tr>
-
-													<th>order ID</th>
+													<th>brand</th>
 													<th>name</th>
+													<th>size</th>
+													<th>color</th>
 													<th class="text-right">price</th>
 													<th class="text-right">quantity</th>
 													<th></th>
@@ -93,139 +92,154 @@ $page = $_SESSION['PAGE'];
 											<tbody>
 												<tr>
 
-													<td>100398</td>
-													<td>iPhone X 64Gb Grey</td>
+													<td>apple</td>
+													<td>iPhone X</td>
+													<td>xl</td>
+													<td>blue</td>
+													<td class="text-right">$999.00</td>
+													<td class="text-right"><input type="text" id="xx" name="xx"
+														value="1" size="1" /></td>
+
+
+													<td class="text-right">
+														<div class="table-data-feature">
+															<button type="button" class="btn btn-secondary mb-1"
+																data-toggle="modal" data-target="#staticModal2"
+																data-placement="top" title="Edit">
+																<i class="zmdi zmdi-edit"></i>
+
+															</button>
+															&nbsp;
+															<button type="button" class="btn btn-secondary mb-1"
+																data-toggle="modal" data-target="#staticModal"
+																data-placement="top" title="Delete">
+																<i class="zmdi zmdi-delete"></i>
+
+															</button>
+															&nbsp;
+															<button type="button" class="btn btn-secondary mb-1"
+																data-toggle="modal" data-target="#largeModal"
+																data-placement="top" title="Detail">
+																<i class="zmdi zmdi-more"></i>
+
+															</button>
+
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>apple</td>
+													<td>iPhone X</td>
+													<td>xl</td>
+													<td>blue</td>
 													<td class="text-right">$999.00</td>
 													<td class="text-right"><input type="text" id="xx" name="xx"
 														value="1" size="1" /></td>
 													<td class="text-right">
 														<div class="table-data-feature">
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal2"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
+															<div class="table-data-feature">
+																<button type="button" class="btn btn-secondary mb-1"
+																	data-toggle="modal" data-target="#staticModal2"
+																	data-placement="top" title="Edit">
+																	<i class="zmdi zmdi-edit"></i>
 
-															</button>
-															&nbsp;		
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
+																</button>
+																&nbsp;
+																<button type="button" class="btn btn-secondary mb-1"
+																	data-toggle="modal" data-target="#staticModal"
+																	data-placement="top" title="Delete">
+																	<i class="zmdi zmdi-delete"></i>
 
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#largeModal"
-																data-placement="top" title="Detail">
-																<i class="zmdi zmdi-more"></i>
+																</button>
+																&nbsp;
+																<button type="button" class="btn btn-secondary mb-1"
+																	data-toggle="modal" data-target="#largeModal"
+																	data-placement="top" title="Detail">
+																	<i class="zmdi zmdi-more"></i>
 
-															</button>
-
-														</div>
+																</button>
+															</div>
+													
 													</td>
 												</tr>
 												<tr>
-
-													<td>100397</td>
-													<td>Samsung S8 Black</td>
-													<td class="text-right">$756.00</td>
+													<td>apple</td>
+													<td>iPhone X</td>
+													<td>xl</td>
+													<td>blue</td>
+													<td class="text-right">$999.00</td>
 													<td class="text-right"><input type="text" id="xx" name="xx"
 														value="1" size="1" /></td>
+
 													<td class="text-right">
 														<div class="table-data-feature">
-														<div class="table-data-feature">
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal2"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
+															<div class="table-data-feature">
+																<button type="button" class="btn btn-secondary mb-1"
+																	data-toggle="modal" data-target="#staticModal2"
+																	data-placement="top" title="Edit">
+																	<i class="zmdi zmdi-edit"></i>
 
-															</button>
-															&nbsp;		
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
+																</button>
+																&nbsp;
+																<button type="button" class="btn btn-secondary mb-1"
+																	data-toggle="modal" data-target="#staticModal"
+																	data-placement="top" title="Delete">
+																	<i class="zmdi zmdi-delete"></i>
 
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#largeModal"
-																data-placement="top" title="Detail">
-																<i class="zmdi zmdi-more"></i>
+																</button>
+																&nbsp;
+																<button type="button" class="btn btn-secondary mb-1"
+																	data-toggle="modal" data-target="#largeModal"
+																	data-placement="top" title="Detail">
+																	<i class="zmdi zmdi-more"></i>
 
-															</button>
-														</div>
+																</button>
+															</div>
+													
 													</td>
 												</tr>
 												<tr>
-													<td>100396</td>
-													<td>Game Console Controller</td>
-													<td class="text-right">$22.00</td>
+													<td>apple</td>
+													<td>iPhone X</td>
+													<td>xl</td>
+													<td>blue</td>
+													<td class="text-right">$999.00</td>
 													<td class="text-right"><input type="text" id="xx" name="xx"
 														value="1" size="1" /></td>
+
 													<td class="text-right">
 														<div class="table-data-feature">
-														<div class="table-data-feature">
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal2"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
+															<div class="table-data-feature">
+																<button type="button" class="btn btn-secondary mb-1"
+																	data-toggle="modal" data-target="#staticModal2"
+																	data-placement="top" title="Edit">
+																	<i class="zmdi zmdi-edit"></i>
 
-															</button>
-															&nbsp;		
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
+																</button>
+																&nbsp;
+																<button type="button" class="btn btn-secondary mb-1"
+																	data-toggle="modal" data-target="#staticModal"
+																	data-placement="top" title="Delete">
+																	<i class="zmdi zmdi-delete"></i>
 
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#largeModal"
-																data-placement="top" title="Detail">
-																<i class="zmdi zmdi-more"></i>
+																</button>
+																&nbsp;
+																<button type="button" class="btn btn-secondary mb-1"
+																	data-toggle="modal" data-target="#largeModal"
+																	data-placement="top" title="Detail">
+																	<i class="zmdi zmdi-more"></i>
 
-															</button>
-														</div>
-													</td>
-												</tr>
-												<tr>
-
-													<td>100395</td>
-													<td>iPhone X 256Gb Black</td>
-													<td class="text-right">$1199.00</td>
-													<td class="text-right"><input type="text" id="xx" name="xx"
-														value="1" size="1" /></td>
-													<td class="text-right">
-														<div class="table-data-feature">
-														<div class="table-data-feature">
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal2"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
-
-															</button>
-															&nbsp;		
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#largeModal"
-																data-placement="top" title="Detail">
-																<i class="zmdi zmdi-more"></i>
-
-															</button>
-														</div>
+																</button>
+													
 													</td>
 
 												</tr>
 											</tbody>
 										</table>
-									</div>
+
+
+									
+
 								</div>
 							</div>
 						</div>
@@ -235,90 +249,113 @@ $page = $_SESSION['PAGE'];
 				<!-- END PAGE CONTAINER-->
 			</div>
 
-		</div>
 
-		<!-- Jquery JS-->
-		<script src="vendor/jquery-3.2.1.min.js"></script>
-		<!-- Bootstrap JS-->
-		<script src="vendor/bootstrap-4.1/popper.min.js"></script>
-		<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-		<!-- Vendor JS       -->
-		<script src="vendor/slick/slick.min.js">
+
+			<!-- Jquery JS-->
+			<script src="vendor/jquery-3.2.1.min.js"></script>
+			<!-- Bootstrap JS-->
+			<script src="vendor/bootstrap-4.1/popper.min.js"></script>
+			<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+			<!-- Vendor JS       -->
+			<script src="vendor/slick/slick.min.js">
     </script>
-		<script src="vendor/wow/wow.min.js"></script>
-		<script src="vendor/animsition/animsition.min.js"></script>
-		<script
-			src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+			<script src="vendor/wow/wow.min.js"></script>
+			<script src="vendor/animsition/animsition.min.js"></script>
+			<script
+				src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
-		<script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-		<script src="vendor/counter-up/jquery.counterup.min.js">
+			<script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+			<script src="vendor/counter-up/jquery.counterup.min.js">
     </script>
-		<script src="vendor/circle-progress/circle-progress.min.js"></script>
-		<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-		<script src="vendor/chartjs/Chart.bundle.min.js"></script>
-		<script src="vendor/select2/select2.min.js">
+			<script src="vendor/circle-progress/circle-progress.min.js"></script>
+			<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+			<script src="vendor/chartjs/Chart.bundle.min.js"></script>
+			<script src="vendor/select2/select2.min.js">
     </script>
 
-		<!-- Main JS-->
-		<script src="js/main.js"></script>
-		<div class="modal fade" id="largeModal" tabindex="-1" role="dialog"
-			aria-labelledby="largeModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="largeModalLabel">Product Detail</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<p>sfs</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary"
-							data-dismiss="modal">Cancel</button>
-						<button type="button" class="btn btn-primary">Confirm</button>
-					</div>
-				</div>
-			</div>
-		</div>
-			<div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
-			 data-backdrop="static">
-				<div class="modal-dialog modal-sm" role="document">
+			<!-- Main JS-->
+			<script src="js/main.js"></script>
+			<div class="modal fade" id="largeModal" tabindex="-1" role="dialog"
+				aria-labelledby="largeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="staticModalLabel">Confirm to delete?</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<h5 class="modal-title" id="largeModalLabel">Product Detail</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-							<button type="button" class="btn btn-primary">Confirm</button>
+						<div class="modal-body">
+							<div class="col-lg-4"></div>
+							<div class="col-lg-8">
+								<div class="table-responsive table--no-card m-b-40">
+									<table
+										class="table table-borderless table-striped table-earning">
+										<tbody>
+											<tr>
+												<th>order ID</th>
+												<td>100398</td>
+											</tr>
+											<tr>
+												<th>order ID</th>
+												<td>order ID</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Cancel</button>
+								<button type="button" class="btn btn-primary">Confirm</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="modal fade" id="staticModal2" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
-			 data-backdrop="static">
-				<div class="modal-dialog modal-sm" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="staticModalLabel">Confirm to edit?</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-							<button type="button" class="btn btn-primary">Confirm</button>
+				<div class="modal fade" id="staticModal" tabindex="-1" role="dialog"
+					aria-labelledby="staticModalLabel" aria-hidden="true"
+					data-backdrop="static">
+					<div class="modal-dialog modal-sm" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticModalLabel">Confirm to delete?</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Cancel</button>
+								<button type="button" class="btn btn-primary">Confirm</button>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+				<div class="modal fade" id="staticModal2" tabindex="-1"
+					role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+					data-backdrop="static">
+					<div class="modal-dialog modal-sm" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticModalLabel">Confirm to edit?</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Cancel</button>
+								<button type="button" class="btn btn-primary">Confirm</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
 </body>
 
 </html>

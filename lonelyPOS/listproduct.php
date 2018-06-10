@@ -6,6 +6,7 @@ if (! $session_set) {
 $_SESSION['PAGE'] = 'product';
 session_write_close();
 $page = $_SESSION['PAGE'];
+$productArr = ProductMgnt::getAllProduct();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,13 +91,13 @@ $page = $_SESSION['PAGE'];
 											</tr>
 										</thead>
 										<tbody>
+										<?php foreach ($productArr as $product) {?>
 											<tr>
-
-												<td>apple</td>
-												<td>iPhone X</td>
-												<td>xl</td>
-												<td>blue</td>
-												<td class="text-right">$999.00</td>
+												<td><?php echo $product->getBrand();?></td>
+												<td><?php echo $product->getName();?></td>
+												<td><?php echo $product->getSize();?></td>
+												<td><?php echo $product->getColor();?></td>
+												<td class="text-right"><?php echo $product->getPrice()?></td>
 												<td class="text-right"><input type="text" id="xx" name="xx"
 													value="1" size="1" /></td>
 
@@ -127,112 +128,7 @@ $page = $_SESSION['PAGE'];
 													</div>
 												</td>
 											</tr>
-											<tr>
-												<td>apple</td>
-												<td>iPhone X</td>
-												<td>xl</td>
-												<td>blue</td>
-												<td class="text-right">$999.00</td>
-												<td class="text-right"><input type="text" id="xx" name="xx"
-													value="1" size="1" /></td>
-												<td class="text-right">
-													<div class="table-data-feature">
-														<div class="table-data-feature">
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal2"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#largeModal"
-																data-placement="top" title="Detail">
-																<i class="zmdi zmdi-more"></i>
-															</button>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td>apple</td>
-												<td>iPhone X</td>
-												<td>xl</td>
-												<td>blue</td>
-												<td class="text-right">$999.00</td>
-												<td class="text-right"><input type="text" id="xx" name="xx"
-													value="1" size="1" /></td>
-
-												<td class="text-right">
-													<div class="table-data-feature">
-														<div class="table-data-feature">
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal2"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#largeModal"
-																data-placement="top" title="Detail">
-																<i class="zmdi zmdi-more"></i>
-
-															</button>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td>apple</td>
-												<td>iPhone X</td>
-												<td>xl</td>
-												<td>blue</td>
-												<td class="text-right">$999.00</td>
-												<td class="text-right"><input type="text" id="xx" name="xx"
-													value="1" size="1" /></td>
-
-												<td class="text-right">
-													<div class="table-data-feature">
-														<div class="table-data-feature">
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal2"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#largeModal"
-																data-placement="top" title="Detail">
-																<i class="zmdi zmdi-more"></i>
-
-															</button>
-														</div>
-													</div>
-												</td>
-											</tr>
+											<?php }?>
 										</tbody>
 									</table>
 								</div>

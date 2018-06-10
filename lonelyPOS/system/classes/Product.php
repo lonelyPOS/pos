@@ -3,9 +3,9 @@
 class Product
 {
 
-    private $id, $bcode, $brand, $name, $color, $size, $price, $qty;
+    private $id, $bcode, $brand, $name, $color, $size, $price, $qty,$image,$description;
 
-    public function __construct($id, $bcode, $brand, $name, $color, $size, $price, $qty)
+    public function __construct($id, $bcode, $brand, $name, $color, $size, $price, $qty,$image,$description)
     {
         $this->id = $id;     
         $this->bcode = $bcode;      
@@ -15,6 +15,8 @@ class Product
         $this->size = $size;      
         $this->price = $price;       
         $this->qty = $qty;
+        $this->image =$image;
+        $this->description=$description;
     }
 
     public function getId()
@@ -57,6 +59,14 @@ class Product
         return $this->qty;
     }
 
+    public function getImage()
+    {
+        return $this->image;
+    }
+    public function getDescription()
+    {
+        return $this->description;
+    }
     public function setId($id)
     {
         $this->id = $id;
@@ -95,6 +105,14 @@ class Product
     public function setQty($qty)
     {
         $this->qty = $qty;
+    }
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 }
 

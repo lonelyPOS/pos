@@ -120,6 +120,7 @@ $productArr = ProductMgnt::getAllProduct();
 															data-toggle="modal" data-target="#largeModal"
 															data-placement="top" title="Detail">
 															<i class="zmdi zmdi-more"></i>
+
 														</button>
 													</div>
 												</td>
@@ -217,9 +218,9 @@ $productArr = ProductMgnt::getAllProduct();
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-lg-4">
-							<img
-								src="https://store.storeimages.cdn-apple.com/8754/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/x/iphone-x-silver-select-2017?wid=305&hei=358&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1515602510472"
-								alt="img" class="img-responsive" />
+							<?php $prodetail = ProductMgnt::getProduct($product->getBcode());?>
+							<img src=<?php $prodetail->getImage();?> alt="img"
+								class="img-responsive" />
 						</div>
 
 						<div class="col-lg-8">
@@ -229,31 +230,31 @@ $productArr = ProductMgnt::getAllProduct();
 									<tbody>
 										<tr>
 											<th>Product ID</th>
-											<td>100398</td>
+											<td><?php echo $prodetail->getId();?></td>
 										</tr>
 										<tr>
-											<th>brand</th>
-											<td>order ID</td>
+											<th>Brand</th>
+											<td><?php echo $prodetail->getBrand();?></td>
 										</tr>
 										<tr>
 											<th>Name</th>
-											<td>order ID</td>
+											<td><?php echo $prodetail->getName();?></td>
 										</tr>
 										<tr>
-											<th>size</th>
-											<td>order ID</td>
+											<th>Size</th>
+											<td><?php echo $prodetail->getSize();?></td>
 										</tr>
 										<tr>
-											<th>color</th>
-											<td>order ID</td>
+											<th>Color</th>
+											<td><?php echo $prodetail->getColor();?></td>
 										</tr>
 										<tr>
-											<th>price</th>
-											<td>order ID</td>
+											<th>Price</th>
+											<td><?php echo $prodetail->getPrice();?></td>
 										</tr>
 										<tr>
-											<th>description</th>
-											<td>sdfssadsadasasasa</td>
+											<th>Description</th>
+											<td><?php echo $prodetail->getDescription();?></td>
 										</tr>
 
 									</tbody>

@@ -157,7 +157,7 @@ $page = $_SESSION['PAGE'];
 
 													<div class="col-lg-12">
 														<textarea name="textarea-input" id="textarea-input" rows=6
-															" placeholder="Descriptio" class="form-control"></textarea>
+															" placeholder="Description" class="form-control"></textarea>
 													</div>
 													<br>
 

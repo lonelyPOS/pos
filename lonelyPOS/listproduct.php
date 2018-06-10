@@ -99,7 +99,7 @@ $productArr = ProductMgnt::getAllProduct();
 												<td><?php echo $product->getColor();?></td>
 												<td class="text-right"><?php echo $product->getPrice()?></td>
 												<td class="text-right"><input type="text" id="xx" name="xx"
-													value="1" size="1" /></td>
+													value=<?php echo $product->getQty()?> size="1" /></td>
 
 
 												<td class="text-right">
@@ -108,23 +108,19 @@ $productArr = ProductMgnt::getAllProduct();
 															data-toggle="modal" data-target="#staticModal2"
 															data-placement="top" title="Edit">
 															<i class="zmdi zmdi-edit"></i>
-
 														</button>
 														&nbsp;
 														<button type="button" class="btn btn-secondary mb-1"
 															data-toggle="modal" data-target="#staticModal"
 															data-placement="top" title="Delete">
 															<i class="zmdi zmdi-delete"></i>
-
 														</button>
 														&nbsp;
 														<button type="button" class="btn btn-secondary mb-1"
 															data-toggle="modal" data-target="#largeModal"
 															data-placement="top" title="Detail">
 															<i class="zmdi zmdi-more"></i>
-
 														</button>
-
 													</div>
 												</td>
 											</tr>

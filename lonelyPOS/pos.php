@@ -93,9 +93,16 @@ $page = $_SESSION['PAGE'];
 												</div>
 											</div>
 											<div class="form-group">
-												<input id="b_code" name="b_code" type="text"
-													class="form-control" aria-required="true"
-													aria-invalid="false" placeholder="Scan barcode">
+												<div class="input-group">
+													<input id="b_code" name="b_code" type="text"
+														class="form-control" aria-required="true"
+														aria-invalid="false" placeholder="Member Code">
+													<div class="input-group-btn">
+														<button type="button" class="btn btn-primary">
+															<i class="fa fa-eraser"></i>
+														</button>
+													</div>
+												</div>
 											</div>
 											<div class="row mt-4"></div>
 											<div class="row mt-4"></div>

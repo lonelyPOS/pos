@@ -1,18 +1,42 @@
 <?php
+
 class ProductMgnt
 {
+    public static function deleteProduct($proline_id)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "DELETE FROM ProducLine WHERE ID='$proline_id'";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+    }
     public static function getProduct($b_code)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
+<<<<<<< HEAD
         $b_code = $conn->real_escape_string($b_code);
         $sql = "SELECT * FROM ProductLine WHERE BARCODE_ID = '$b_code'";
+=======
+        $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
+        ProductLine.PRODUCT_ID AS PID,
+        ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,
+        Brand.NAME AS bname, COLOR.NAME AS cname, SIZE.CODE AS size,
+        Product.NAME AS pname,Product.DESCRIPTION AS pdescription
+        FROM ProductLine INNER JOIN Product ON ProductLine.PRODUCT_ID=Product.ID
+        INNER JOIN Brand ON Product.BRAND_ID=Brand.ID
+        INNER JOIN COLOR ON ProductLine.COLOR_ID=COLOR.ID
+        INNER JOIN SIZE ON ProductLine.SIZE_ID=SIZE.ID WHERE ProductLine.BARCODE_ID ='".$b_code."'";
+>>>>>>> refs/remotes/origin/master
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
-        if($result){
-            $product = new Product($result['ID'], $b_code, null, 'xxx', $result['COLOR_ID'], $result['SIZE_ID'], $result['PRICE'], $result['QUANTITY']);
+        if ($result) {
+            $product = new Product($result['PID'],$result['barid']
+                ,$result['bname'], $result['pname'],$result['cname'],
+                $result['size'],$result['price'],$result['quantity'],
+                $result['proimages'],$result['pdescription']);
             return $product;
-        }else{
+        } else {
             return NULL;
         }
     }
@@ -21,16 +45,25 @@ class ProductMgnt
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM PRODUCT ";
+        $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
+        ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,
+        Brand.NAME AS bname, COLOR.NAME AS cname, SIZE.CODE AS size,
+        Product.NAME AS pname,Product.DESCRIPTION AS pdescription
+        FROM ProductLine INNER JOIN Product ON ProductLine.PRODUCT_ID=Product.ID
+        INNER JOIN Brand ON Product.BRAND_ID=Brand.ID
+        INNER JOIN COLOR ON ProductLine.COLOR_ID=COLOR.ID
+        INNER JOIN SIZE ON ProductLine.SIZE_ID=SIZE.ID";
         $query = $conn->query($sql);
         $resultArray = array();
-        $i = 0;
         while ($result = $query->fetch_array()) {
-            $promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],$promotion);
+            
+            $product = new Product($result['ID'],$result['barid']
+                ,$result['bname'], $result['pname'],$result['cname'],
+                $result['size'],$result['price'],$result['quantity'],
+                $result['proimages'],$result['pdescription']);
             $resultArray[] = $product;
         }
-        shuffle($resultArray);
+        sort($resultArray);
         return $resultArray;
     }
     
@@ -70,26 +103,33 @@ class ProductMgnt
         
         $conn->close();
     }
-       
-   
+    
     public static function search($name)
     {
-        require 'config/config.php';      
+        require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME LIKE '%$name%'";
+        $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
+        ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,
+        Brand.NAME AS bname, COLOR.NAME AS cname, SIZE.CODE AS size,
+        Product.NAME AS pname,Product.DESCRIPTION AS pdescription
+        FROM ProductLine INNER JOIN Product ON ProductLine.PRODUCT_ID=Product.ID
+        INNER JOIN Brand ON Product.BRAND_ID=Brand.ID
+        INNER JOIN COLOR ON ProductLine.COLOR_ID=COLOR.ID
+        INNER JOIN SIZE ON ProductLine.SIZE_ID=SIZE.ID WHERE pname LIKE '%$name%'";
         $query = $conn->query($sql);
         $resultArray = array();
         $i = 0;
         while ($result = $query->fetch_array()) {
-            $promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],$promotion);
+            
+            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"], $promotion);
             $resultArray[] = $product;
-            $i++;
+            $i ++;
         }
-        if($i==0){
+        if ($i == 0) {
             return null;
         }
         return $resultArray;
     }
 }
+
 ?>

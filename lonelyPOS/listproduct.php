@@ -6,6 +6,7 @@ if (! $session_set) {
 $_SESSION['PAGE'] = 'product';
 session_write_close();
 $page = $_SESSION['PAGE'];
+$productArr = ProductMgnt::getAllProduct();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,15 +91,15 @@ $page = $_SESSION['PAGE'];
 											</tr>
 										</thead>
 										<tbody>
+										<?php foreach ($productArr as $product) {?>
 											<tr>
-
-												<td>apple</td>
-												<td>iPhone X</td>
-												<td>xl</td>
-												<td>blue</td>
-												<td class="text-right">$999.00</td>
+												<td><?php echo $product->getBrand();?></td>
+												<td><?php echo $product->getName();?></td>
+												<td><?php echo $product->getSize();?></td>
+												<td><?php echo $product->getColor();?></td>
+												<td class="text-right"><?php echo $product->getPrice()?></td>
 												<td class="text-right"><input type="text" id="xx" name="xx"
-													value="1" size="1" /></td>
+													value=<?php echo $product->getQty()?> size="1" /></td>
 
 
 												<td class="text-right">
@@ -107,14 +108,12 @@ $page = $_SESSION['PAGE'];
 															data-toggle="modal" data-target="#staticModal2"
 															data-placement="top" title="Edit">
 															<i class="zmdi zmdi-edit"></i>
-
 														</button>
 														&nbsp;
 														<button type="button" class="btn btn-secondary mb-1"
 															data-toggle="modal" data-target="#staticModal"
 															data-placement="top" title="Delete">
 															<i class="zmdi zmdi-delete"></i>
-
 														</button>
 														&nbsp;
 														<button type="button" class="btn btn-secondary mb-1"
@@ -123,116 +122,10 @@ $page = $_SESSION['PAGE'];
 															<i class="zmdi zmdi-more"></i>
 
 														</button>
-
 													</div>
 												</td>
 											</tr>
-											<tr>
-												<td>apple</td>
-												<td>iPhone X</td>
-												<td>xl</td>
-												<td>blue</td>
-												<td class="text-right">$999.00</td>
-												<td class="text-right"><input type="text" id="xx" name="xx"
-													value="1" size="1" /></td>
-												<td class="text-right">
-													<div class="table-data-feature">
-														<div class="table-data-feature">
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal2"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#largeModal"
-																data-placement="top" title="Detail">
-																<i class="zmdi zmdi-more"></i>
-															</button>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td>apple</td>
-												<td>iPhone X</td>
-												<td>xl</td>
-												<td>blue</td>
-												<td class="text-right">$999.00</td>
-												<td class="text-right"><input type="text" id="xx" name="xx"
-													value="1" size="1" /></td>
-
-												<td class="text-right">
-													<div class="table-data-feature">
-														<div class="table-data-feature">
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal2"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#largeModal"
-																data-placement="top" title="Detail">
-																<i class="zmdi zmdi-more"></i>
-
-															</button>
-														</div>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td>apple</td>
-												<td>iPhone X</td>
-												<td>xl</td>
-												<td>blue</td>
-												<td class="text-right">$999.00</td>
-												<td class="text-right"><input type="text" id="xx" name="xx"
-													value="1" size="1" /></td>
-
-												<td class="text-right">
-													<div class="table-data-feature">
-														<div class="table-data-feature">
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal2"
-																data-placement="top" title="Edit">
-																<i class="zmdi zmdi-edit"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#staticModal"
-																data-placement="top" title="Delete">
-																<i class="zmdi zmdi-delete"></i>
-
-															</button>
-															&nbsp;
-															<button type="button" class="btn btn-secondary mb-1"
-																data-toggle="modal" data-target="#largeModal"
-																data-placement="top" title="Detail">
-																<i class="zmdi zmdi-more"></i>
-
-															</button>
-														</div>
-													</div>
-												</td>
-											</tr>
+											<?php }?>
 										</tbody>
 									</table>
 								</div>
@@ -325,9 +218,9 @@ $page = $_SESSION['PAGE'];
 				<div class="modal-body">
 					<div class="row">
 						<div class="col-lg-4">
-							<img
-								src="https://store.storeimages.cdn-apple.com/8754/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/x/iphone-x-silver-select-2017?wid=305&hei=358&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1515602510472"
-								alt="img" class="img-responsive" />
+							<?php $prodetail = ProductMgnt::getProduct($product->getBcode());?>
+							<img src=<?php $prodetail->getImage();?> alt="img"
+								class="img-responsive" />
 						</div>
 
 						<div class="col-lg-8">
@@ -337,31 +230,31 @@ $page = $_SESSION['PAGE'];
 									<tbody>
 										<tr>
 											<th>Product ID</th>
-											<td>100398</td>
+											<td><?php echo $prodetail->getId();?></td>
 										</tr>
 										<tr>
-											<th>brand</th>
-											<td>order ID</td>
+											<th>Brand</th>
+											<td><?php echo $prodetail->getBrand();?></td>
 										</tr>
 										<tr>
 											<th>Name</th>
-											<td>order ID</td>
+											<td><?php echo $prodetail->getName();?></td>
 										</tr>
 										<tr>
-											<th>size</th>
-											<td>order ID</td>
+											<th>Size</th>
+											<td><?php echo $prodetail->getSize();?></td>
 										</tr>
 										<tr>
-											<th>color</th>
-											<td>order ID</td>
+											<th>Color</th>
+											<td><?php echo $prodetail->getColor();?></td>
 										</tr>
 										<tr>
-											<th>price</th>
-											<td>order ID</td>
+											<th>Price</th>
+											<td><?php echo $prodetail->getPrice();?></td>
 										</tr>
 										<tr>
-											<th>description</th>
-											<td>sdfssadsadasasasa</td>
+											<th>Description</th>
+											<td><?php echo $prodetail->getDescription();?></td>
 										</tr>
 
 									</tbody>

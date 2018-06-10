@@ -1,21 +1,20 @@
 <?php
 require 'autoload.php';
 require 'classes/config/config.php';
-echo '<script src="js/pos.js"></script>';
 if (isset($_POST['b_code'])) {
     $code = $_POST['b_code'];
     $product = ProductMgnt::getProduct($code);
     if ($product != null) {
-        echo '<script type="text/javascript">', 'clearBCODE();', '</script>';
+        echo '<script type="text/javascript">clearBCODE();</script>';
         $same = false;
         foreach ($cart->getItems() as $pro) {
             if ($pro->getId() === $product->getId()) {
-                $pro->setQty($pro->getQty() + $product->getQty());
+                $pro->setQty($pro->getQty() + 1);
                 $same = true;
                 break;
             }
         }
-        if (! $same) {
+        if (!$same) {
             $cart->addItems($product);
         }
     }
@@ -44,7 +43,9 @@ if (isset($_POST['b_code'])) {
                 echo '<tr>';
                 echo '<td>' . $pro->getName() . '</td>';
                 echo '<td>' . $pro->getPrice() . '</td>';
-                echo '<td>' . $pro->getQty() . '</td>';
+                echo '<td> 
+                          <input id="b_code" name="b_code" type="text" class="input-sm form-control-sm form-control" size="1" value="' . $pro->getQty() . '"/>
+                      </td>';
                 echo '<td>100</td>';
                 echo '<td>
                         <div class="table-data-feature">

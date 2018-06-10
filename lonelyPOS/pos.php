@@ -81,9 +81,20 @@ $page = $_SESSION['PAGE'];
 										<form action="#" method="post">
 											<div class="form-group">
 												<div class="input-group">
-													<input id="member" name="member_code" type="text"
+												<?php 
+													if($cart->getMember()!=null){ 
+													   $member = $cart->getMember();
+													   $name = $member->getFname().' '.$member->getLname();
+													?>
+														<input id="member_code" name="member_code" type="text"
+														class="form-control" aria-required="true"
+														aria-invalid="false" placeholder="Member Code" value = "<?php echo $name; ?>" disabled>
+											<?php	}else{ ?>
+														<input id="member_code" name="member_code" type="text"
 														class="form-control" aria-required="true"
 														aria-invalid="false" placeholder="Member Code">
+											<?php }
+													?>
 													<div class="input-group-btn">
 														<button type="button" class="btn btn-primary"
 															data-toggle="modal" data-target="#member_add">
@@ -94,7 +105,7 @@ $page = $_SESSION['PAGE'];
 											</div>
 											<div class="form-group">
 												<div class="input-group">
-													<input id="b_code" name="b_code" type="text"
+													    <input id="b_code" name="b_code" type="text"
 														class="form-control" aria-required="true"
 														aria-invalid="false" placeholder="Please scan barcode">
 													<div class="input-group-btn">

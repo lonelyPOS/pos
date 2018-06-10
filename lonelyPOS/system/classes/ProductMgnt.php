@@ -5,6 +5,7 @@ class ProductMgnt
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
+        $b_code = $conn->real_escape_string($b_code);
         $sql = "SELECT * FROM ProductLine WHERE BARCODE_ID = '$b_code'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();

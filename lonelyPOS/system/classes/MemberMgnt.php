@@ -3,7 +3,6 @@
 class MemberMgnt
 {
 
-<<<<<<< HEAD
     public static function getMemberByCode($b_code)
     {
         require 'config/config.php';
@@ -19,14 +18,12 @@ class MemberMgnt
             return NULL;
         }
     }
-}
 
-=======
     public static function getMember($m_fname)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM Member WHERE BARCODE_ID = '$b_code'";//ทำไงอะ
+        $sql = "SELECT * FROM Member WHERE BARCODE_ID = '$b_code'"; // ทำไงอะ
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
@@ -53,29 +50,13 @@ class MemberMgnt
         $resultArray = array();
         while ($result = $query->fetch_array()) {
             
-            $product = new Product($result['PRODUCT_ID'],$result['barid']
-                ,$result['bname'], $result['pname'],$result['cname'],
-                $result['size'],$result['price'],$result['quantity'],
-                $result['proimages'],$result['pdescription']);
+            $product = new Product($result['PRODUCT_ID'], $result['barid'], $result['bname'], $result['pname'], $result['cname'], $result['size'], $result['price'], $result['quantity'], $result['proimages'], $result['pdescription']);
             $resultArray[] = $product;
         }
         sort($resultArray);
         return $resultArray;
     }
-
-//     public static function checkProduct($name)
-//     {
-//         require 'config/config.php';
-//         $conn = new mysqli($hostname, $username, $password, $dbname);
-//         $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME='" . $name . "' ";
-//         $query = $conn->query($sql);
-//         $result = $query->fetch_assoc();
-//         if ($result) {
-//             return false;
-//         }
-//         return true;
-//     }
-
+    
     public static function addProduct($name, $image, $price, $des, $type)
     {
         require 'config/config.php';
@@ -99,27 +80,6 @@ class MemberMgnt
         
         $conn->close();
     }
-
-    public static function search($name)
-    {
-        require 'config/config.php';
-        $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME LIKE '%$name%'";
-        $query = $conn->query($sql);
-        $resultArray = array();
-        $i = 0;
-        while ($result = $query->fetch_array()) {
-            $promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"], $promotion);
-            $resultArray[] = $product;
-            $i ++;
-        }
-        if ($i == 0) {
-            return null;
-        }
-        return $resultArray;
-    }
 }
 
 ?>
->>>>>>> refs/remotes/origin/master

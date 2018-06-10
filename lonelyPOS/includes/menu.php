@@ -16,15 +16,12 @@
 					<a class="js-arrow" href="#"> <i class="fas fa-tags"></i>Product
 				</a>
 					<ul class="list-unstyled navbar__sub-list js-sub-list">
-<<<<<<< HEAD
+
 						<li><a href="listproduct.php"><i class="fas fa-search-plus"></i>List Product</a></li>
 						<li><a href="addproduct.php"><i class="fas fa-search-plus"></i>Add Product</a></li>
 						<li><a href="#"><i class="fas fa-search-plus"></i>Print Barcode</a></li>
-=======
-						<li><a href="listproduct.php"><i class="fas fa-list"></i>List Product</a></li>
-						<li><a href="#"><i class="fas  fa-plus"></i>Add Product</a></li>
-						<li><a href="#"><i class="fas fa-barcode"></i>Print Barcode</a></li>
->>>>>>> branch 'master' of https://github.com/lonelyPOS/pos
+				
+
 					</ul>
 				</li>
 				<li

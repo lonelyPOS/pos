@@ -157,11 +157,11 @@ $page = $_SESSION['PAGE'];
 
 													<div class="col-lg-12">
 														<textarea name="textarea-input" id="textarea-input" rows=6
-															" placeholder="Descriptio" class="form-control"></textarea>
+															" placeholder="Description" class="form-control"></textarea>
 													</div>
 													<br>
 
-
+ 
 													<button type="button"
 														class="btn btn-primary float-right offset-1 "
 														data-toggle="modal" data-target="#makesure">Confirm</button>

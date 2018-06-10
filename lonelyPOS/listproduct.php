@@ -272,71 +272,7 @@ $page = $_SESSION['PAGE'];
 			<script src="vendor/chartjs/Chart.bundle.min.js"></script>
 			<script src="vendor/select2/select2.min.js">
     </script>
-
-			<!-- Main JS-->
-			<script src="js/main.js"></script>
-			<div class="modal fade" id="largeModal" tabindex="-1" role="dialog"
-				aria-labelledby="largeModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="largeModalLabel">Product Detail</h5>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<div class="row">
-								<div class="col-lg-4">
-									<img
-										src="https://store.storeimages.cdn-apple.com/8754/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/x/iphone-x-silver-select-2017?wid=305&hei=358&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1515602510472"
-										alt="..." class="img-responsive" />
-								</div>
-									
-									<div class="col-lg-8">
-										<div class="table-responsive table--no-card m-b-40">
-											<table
-												class="table table-borderless table-striped table-earning">
-												<tbody>
-													<tr>
-														<th>Product ID</th>
-														<td>100398</td>
-													</tr>
-													<tr>
-														<th>brand</th>
-														<td>order ID</td>
-													</tr>
-													<tr>
-														<th>Name</th>
-														<td>order ID</td>
-													</tr>
-													<tr>
-														<th>size</th>
-														<td>order ID</td>
-													</tr>
-													<tr>
-														<th>color</th>
-														<td>order ID</td>
-													</tr>
-													<tr>
-														<th>price</th>
-														<td>order ID</td>
-													</tr>
-													<tr>
-														<th>description</th>
-														<td>sdfssadsadasasasa</td>
-													</tr>
-
-												</tbody>
-											</table>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div>
-						<div class="modal fade" id="staticModal" tabindex="-1"
+    	<div class="modal fade" id="staticModal" tabindex="-1"
 							role="dialog" aria-labelledby="staticModalLabel"
 							aria-hidden="true" data-backdrop="static">
 							<div class="modal-dialog modal-sm" role="document">
@@ -379,6 +315,71 @@ $page = $_SESSION['PAGE'];
 								</div>
 							</div>
 						</div>
+
+			<!-- Main JS-->
+			<script src="js/main.js"></script>
+			<div class="modal fade" id="largeModal" tabindex="-1" role="dialog"
+				aria-labelledby="largeModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="largeModalLabel">Product Detail</h5>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-lg-4">
+									<img
+										src="https://store.storeimages.cdn-apple.com/8754/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone/x/iphone-x-silver-select-2017?wid=305&hei=358&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1515602510472"
+										alt="img" class="img-responsive" />
+								</div>
+									
+									<div class="col-lg-8">
+										<div class="table-responsive table--no-card m-b-40">
+											<table
+												class="table table-borderless table-striped table-earning">
+												<tbody>
+													<tr>
+														<th>Product ID</th>
+														<td>100398</td>
+													</tr>
+													<tr>
+														<th>brand</th>
+														<td>order ID</td>
+													</tr>
+													<tr>
+														<th>Name</th>
+														<td>order ID</td>
+													</tr>
+													<tr>
+														<th>size</th>
+														<td>order ID</td>
+													</tr>
+													<tr>
+														<th>color</th>
+														<td>order ID</td>
+													</tr>
+													<tr>
+														<th>price</th>
+														<td>order ID</td>
+													</tr>
+													<tr>
+														<th>description</th>
+														<td>sdfssadsadasasasa</td>
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					
 
 </body>
 

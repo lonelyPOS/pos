@@ -2,14 +2,11 @@
 
 class Cart
 {
-
-    private $account;
     private $items; //array LineItem
 
-    public function __construct($account, $items)
+    public function __construct()
     {
-        $this->$account = $account;
-        $this->items = $items;
+        $this->items = array();
     }
 
     public function getItems()
@@ -22,14 +19,9 @@ class Cart
         $this->items = $items;
     }
 
-    public function getAccount()
+    public function addItems($product)
     {
-        return $this->$account;
-    }
-
-    public function setAccount($account)
-    {
-        $this->$account = $account;
+        return $this->items[] = $product;
     }
 }
 ?>

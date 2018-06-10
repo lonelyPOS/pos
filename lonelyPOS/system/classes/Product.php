@@ -3,98 +3,98 @@
 class Product
 {
 
-    private $pId, $pName, $pImages, $pPrice, $pDescription, $pType, $pQuantity,$pPromotions;
+    private $id, $bcode, $brand, $name, $color, $size, $price, $qty;
 
-    public function __construct($pId, $pName, $pImages, $pPrice, $pDescription, $pType, $pQuantity,$pPromotions)
+    public function __construct($id, $bcode, $brand, $name, $color, $size, $price, $qty)
     {
-        $this->pId = $pId;
-        $this->pName = $pName;
-        $this->pImages = $pImages;
-        $this->pPrice = $pPrice;
-        $this->pDescription = $pDescription;
-        $this->pType = $pType;
-        $this->pQuantity = $pQuantity;
-        $this->pPromotions = $pPromotions;
+        $this->id = $id;     
+        $this->bcode = $bcode;      
+        $this->brand = $brand;        
+        $this->name = $name;        
+        $this->color = $color;        
+        $this->size = $size;      
+        $this->price = $price;       
+        $this->qty = $qty;
     }
 
-    public function getPPromotions()
+    public function getId()
     {
-        return $this->pPromotions;
+        return $this->id;
     }
 
-    public function setPPromotions($pPromotions)
+    public function getBcode()
     {
-        $this->pPromotions = $pPromotions;
+        return $this->bcode;
     }
 
-    public function getPId()
+    public function getBrand()
     {
-        return $this->pId;
+        return $this->brand;
     }
 
-    public function getPName()
+    public function getName()
     {
-        return $this->pName;
+        return $this->name;
     }
 
-    public function getPImages()
+    public function getColor()
     {
-        return $this->pImages;
+        return $this->color;
     }
 
-    public function getPPrice()
+    public function getSize()
     {
-        return $this->pPrice;
+        return $this->size;
     }
 
-    public function getPDescription()
+    public function getPrice()
     {
-        return $this->pDescription;
+        return $this->price;
     }
 
-    public function getPType()
+    public function getQty()
     {
-        return $this->pType;
+        return $this->qty;
     }
 
-    public function setPId($pId)
+    public function setId($id)
     {
-        $this->pId = $pId;
+        $this->id = $id;
     }
 
-    public function setPName($pName)
+    public function setBcode($bcode)
     {
-        $this->pName = $pName;
+        $this->bcode = $bcode;
     }
 
-    public function setPImages($pImages)
+    public function setBrand($brand)
     {
-        $this->pImages = $pImages;
+        $this->brand = $brand;
     }
 
-    public function setPPrice($pPrice)
+    public function setName($name)
     {
-        $this->pPrice = $pPrice;
+        $this->name = $name;
     }
 
-    public function setPDescription($pDescription)
+    public function setColor($color)
     {
-        $this->pDescription = $pDescription;
+        $this->color = $color;
     }
 
-    public function setPType($pType)
+    public function setSize($size)
     {
-        $this->pType = $pType;
+        $this->size = $size;
     }
 
-    public function getPQuantity()
+    public function setPrice($price)
     {
-        return $this->pQuantity;
+        $this->price = $price;
     }
 
-    public function setPQuantity($pQuantity)
+    public function setQty($qty)
     {
-        $this->pQuantity = $pQuantity;
+        $this->qty = $qty;
     }
 }
 

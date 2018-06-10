@@ -8,6 +8,7 @@ function __autoload($class_name) {
 }
 require '../includes/session.php';
 if ($session_set) {
-    $acc = $_SESSION['ACC'];
+    $user = $_SESSION['USER'];
+    $cart = $_SESSION["CART"]; 
 }
 ?>

@@ -14,6 +14,8 @@ if (! isset($_POST['username']) || ! isset($_POST['password'])) {
         $user = LoginMgnt::loginAuth($userinput, $passinput);
         if ($user != null) {
             $_SESSION["USER"] = $user;
+            $cart = new Cart();
+            $_SESSION["CART"] = $cart;
             session_write_close();
             echo "<script language=\"JavaScript\">";
             echo "alert('Welcome " . $user->getFname() . " " . $user->getLname() . "')";

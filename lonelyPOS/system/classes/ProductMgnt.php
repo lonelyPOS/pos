@@ -1,16 +1,15 @@
 <?php
 class ProductMgnt
 {
-    public static function getProduct($pro_index)
+    public static function getProduct($b_code)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM PRODUCT WHERE PRO_INDEX ='" . $pro_index . "'";
+        $sql = "SELECT * FROM ProductLine WHERE BARCODE_ID = '$b_code'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if($result){
-            $promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],$promotion);
+            $product = new Product($result['ID'], $b_code, null, 'xxx', $result['COLOR_ID'], $result['SIZE_ID'], $result['PRICE'], $result['QUANTITY']);
             return $product;
         }else{
             return NULL;
@@ -29,27 +28,6 @@ class ProductMgnt
             $promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
             $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],$promotion);
             $resultArray[] = $product;
-        }
-        shuffle($resultArray);
-        return $resultArray;
-    }
-    
-    public static function getFeaProduct($product)
-    {
-        require 'config/config.php';
-        $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM PRODUCT WHERE (CAT_INDEX = '" . $product->getPType() . "' OR CAT_INDEX = '4') AND (PRO_INDEX != '" . $product->getPID() . "');";
-        $query = $conn->query($sql);
-        $resultArray = array();
-        $i = 0;
-        while ($result = $query->fetch_array()) {
-            $promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],$promotion);
-            $resultArray[] = $product;
-            $i ++;
-        }
-        if ($i === 0) {
-            return NULL;
         }
         shuffle($resultArray);
         return $resultArray;
@@ -109,26 +87,6 @@ class ProductMgnt
         }
         if($i==0){
             return null;
-        }
-        return $resultArray;
-    }
-    
-    public static function getAllProductByCat($cat_index)
-    {
-        require 'config/config.php';
-        $sql = "SELECT * FROM PRODUCT WHERE CAT_INDEX = '".$cat_index."'";
-        $conn = new mysqli($hostname, $username, $password, $dbname);
-        $query = $conn->query($sql);
-        $i = 0;
-        $resultArray = array();
-        while ($resultt = $query->fetch_array()) {
-            $promotion = PromotionMgnt::getPromotionByProductID($resultt["PRO_INDEX"]);
-            $product = new Product($resultt["PRO_INDEX"], $resultt["PRO_NAME"], $resultt["PRO_IMAGE"], $resultt["PRO_PRICE"], $resultt["PRO_DESC"], $resultt["CAT_INDEX"], $resultt["PRO_STOCKS"],$promotion);
-            $resultArray[] = $product;
-            $i++;
-        }
-        if($i === 0){
-            return NULL;
         }
         return $resultArray;
     }

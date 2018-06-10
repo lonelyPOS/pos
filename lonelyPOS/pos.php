@@ -129,10 +129,13 @@ $page = $_SESSION['PAGE'];
 											</div>
 											<div class="row">
 												<div class="col-lg-6">
-													<button type="button" class="btn btn-danger btn-lg btn-block"">Cancel</button>
+													<button type="button"
+														class="btn btn-danger btn-lg btn-block"
+														data-toggle="modal" data-target="#cancel_cart">Cancel</button>
 												</div>
 												<div class="col-lg-6">
-													<button type="button" class="btn btn-success btn-lg btn-block"">Payment</button>
+													<button type="button"
+														class="btn btn-success btn-lg btn-block">Payment</button>
 												</div>
 											</div>
 										</form>
@@ -142,59 +145,81 @@ $page = $_SESSION['PAGE'];
 							<div class="col-lg-8">
 								<!--items-->
 								<div class="table-responsive m-b-40">
-									<table class="table table-borderless table-data3">
-										<thead>
-											<tr>
-												<th>Product</th>
-												<th>Price</th>
-												<th>Qty</th>
-												<th>Sub total</th>
-												<th>
-													<div class="table-data-feature">
-														<button class="item" data-toggle="tooltip"
-															data-placement="top" title="Delete" disabled>
-															<i class="zmdi zmdi-delete"></i>
-														</button>
-													</div>
-												</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>iPhone X 64Gb Grey</td>
-												<td>$999.00</td>
-												<td>10</td>
-												<td>$999.00</td>
-												<td>
-													<div class="table-data-feature">
-														<button class="item" data-toggle="tooltip"
-															data-placement="top" title="Delete">
-															<i class="zmdi zmdi-delete"></i>
-														</button>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td>Macbook Pro Retina 2017</td>
-												<td>$10.00</td>
-												<td>20</td>
-												<td>$10.00</td>
-												<td>
-													<div class="table-data-feature">
-														<button class="item" data-toggle="tooltip"
-															data-placement="top" title="Delete">
-															<i class="zmdi zmdi-delete"></i>
-														</button>
-													</div>
-												</td>
-											</tr>
-										</tbody>
-									</table>
+									<div id="cart">
+										<table class="table table-borderless table-data3">
+											<thead>
+												<tr>
+													<th>Product</th>
+													<th>Price</th>
+													<th>Qty</th>
+													<th>Sub total</th>
+													<th>
+														<div class="table-data-feature">
+															<button class="item" data-toggle="tooltip"
+																data-placement="top" title="Delete" disabled>
+																<i class="zmdi zmdi-delete"></i>
+															</button>
+														</div>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php
+                                                    if ($cart->getItems() != null) {
+                                                        foreach ($cart->getItems() as $pro) {
+                                                            echo '<tr>';
+                                                            echo '<td>' . $pro->getName() . '</td>';
+                                                            echo '<td>' . $pro->getPrice() . '</td>';
+                                                            echo '<td>' . $pro->getQty() . '</td>';
+                                                            echo '<td>100</td>';
+                                                            echo '<td>
+                                                                <div class="table-data-feature">
+                                            						<button class="item" data-toggle="tooltip"
+                                            							data-placement="top" title="Delete">
+                                            							<i class="zmdi zmdi-delete"></i>
+                                            						</button>
+                                            					</div>
+                                                            </td>';
+                                                            echo '</tr>';
+                                                        }
+                                                    } else {
+                                                        echo '<tr>';
+                                                        echo '<td colspan="5" class="text-center">Empty Cart</td>';
+                                                        echo '</tr>';
+                                                    }
+                                                    ?>
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!-- modal small -->
+				<div class="modal fade" id="cancel_cart" tabindex="-1" role="dialog"
+					aria-labelledby="smallmodalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-sm" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="smallmodalLabel">Warning</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>Please confirm to delete.</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary"
+									data-dismiss="modal">Cancel</button>
+								<button type="button" class="btn btn-danger" id="clear_cart_con">Confirm</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end modal small -->
 
 				<!-- modal member_add -->
 				<div class="modal fade" id="member_add" tabindex="-1" role="dialog"
@@ -309,6 +334,7 @@ $page = $_SESSION['PAGE'];
 
 	<!-- Main JS-->
 	<script src="js/main.js"></script>
+	<script src="js/pos.js"></script>
 
 </body>
 

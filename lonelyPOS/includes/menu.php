@@ -29,7 +29,7 @@
 					<a class="js-arrow" href="#"> <i class="fas fa-users"></i>Member
 				</a>
 					<ul class="list-unstyled navbar__sub-list js-sub-list">
-						<li><a href="#"><i class="fas fa-list"></i>List Member</a></li>
+						<li><a href="listmember.php"><i class="fas fa-list"></i>List Member</a></li>
 						<li><a href="#"><i class="fas  fa-plus"></i>Add Member</a></li>
 					</ul>
 				</li>

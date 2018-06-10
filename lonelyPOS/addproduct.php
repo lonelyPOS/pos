@@ -161,7 +161,7 @@ $page = $_SESSION['PAGE'];
 													</div>
 													<br>
 
-
+ 
 													<button type="button"
 														class="btn btn-primary float-right offset-1 "
 														data-toggle="modal" data-target="#makesure">Confirm</button>

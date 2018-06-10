@@ -96,9 +96,9 @@ $page = $_SESSION['PAGE'];
 												<div class="input-group">
 													<input id="b_code" name="b_code" type="text"
 														class="form-control" aria-required="true"
-														aria-invalid="false" placeholder="Member Code">
+														aria-invalid="false" placeholder="Please scan barcode">
 													<div class="input-group-btn">
-														<button type="button" class="btn btn-primary">
+														<button type="button" class="btn btn-primary" id="clear_code">
 															<i class="fa fa-eraser"></i>
 														</button>
 													</div>

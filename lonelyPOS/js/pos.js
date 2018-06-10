@@ -16,6 +16,10 @@ $(document).ready(function() {
 	$('#clear_cart_con').click(function() {
 		window.location = 'system/clear_cart.php';
 	});
+	
+	$('#clear_code').click(function() {
+		$('#b_code').val('');
+	});
 });
 
 function clearBCODE() {

@@ -181,15 +181,17 @@ $page = $_SESSION['PAGE'];
 											<div class="row mt-4"></div>
 											<div class="row mt-3"></div>
 											<div class="table-responsive">
-												<table class="table table-top-campaign">
+												<table class="table table-top-campaign" id="total">
 													<tbody>
 														<tr>
 															<td>Total Items</td>
-															<td>10</td>
+															<td><?php echo $cart->getCount(); ?></td>
 														</tr>
 														<tr>
 															<td>Total</td>
-															<td>$20,366.96</td>
+															<td><?php 
+															     echo number_format($cart->getTotalPrice(),2).' Baht';															     
+															?></td>
 														</tr>
 													</tbody>
 												</table>
@@ -202,7 +204,7 @@ $page = $_SESSION['PAGE'];
 												</div>
 												<div class="col-lg-6">
 													<button type="button"
-														class="btn btn-success btn-lg btn-block">Payment</button>
+														class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#payment" id="payment_btn">Payment</button>
 												</div>
 											</div>
 										</form>
@@ -333,11 +335,105 @@ $page = $_SESSION['PAGE'];
 										</div>
 										<div class="col-6">
 											<div class="form-group">
-												<label for="m_lname" class="control-label mb-1">Gender</label>
+												<label for="m_gender" class="control-label mb-1">Gender</label>
 												<select name="m_gender" id="m_gender" class="form-control">
 													<option value="M">Male</option>
 													<option value="F">Female</option>
 												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-danger btn-sm"
+										data-dismiss="modal">
+										<i class="fa fa-ban"></i> Cancel
+									</button>
+									<button type="submit" class="btn btn-primary btn-sm">
+										<i class="fa fa-dot-circle-o"></i> Confirm
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				
+				<div class="modal fade" id="payment" tabindex="-1" role="dialog"
+					aria-labelledby="staticModalLabel" aria-hidden="true"
+					data-backdrop="static">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="staticModalLabel">Payment</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<form action="system/add_member.php" method="post">
+								<div class="modal-body">
+									<div class="row">
+										<div class="col-12">			
+											<table class="table table-top-campaign" id="info_payment">
+    											<tbody>
+    												<tr>
+    													<td>Member</td>
+    													<td><?php 
+        													if($cart->getMember() != null){
+        													    $member = $cart->getMember();
+        													    echo $member->getFname().' '.$member->getLname();
+        													}else{
+        													    echo 'Guest';
+        													}
+    													?></td>
+    												</tr>
+    											</tbody>
+											</table>
+											<table class="table table-top-campaign" id="total_full">
+												<thead>
+													<tr>
+														<th colspan="2" class="text-center">Total</th>
+													</tr>
+												</thead>
+    											<tbody>
+    												<tr>
+    													<td>Total Items</td>
+    													<td><?php echo $cart->getCount(); ?> items</td>
+    												</tr>
+    												<tr>
+    													<td>Total</td>
+    													<td><?php 
+    															echo number_format($cart->getTotalPrice(),2).' Baht';															     
+    												    ?></td>
+    												</tr>
+    												<tr>
+    													<td>Total Paying</td>
+    													<td><?php echo  number_format($cart->getTotalPaying(),2); ?> Baht</td>
+    												</tr>
+    												<tr>
+    													<td>Balance</td>
+    													<td><?php echo number_format($cart->getTotalPaying() - $cart->getTotalPrice(),2); ?> Baht</td>
+    												</tr>
+    											</tbody>
+											</table>
+										</div>
+									</div>		
+									<hr>
+									<div class="row">
+										<div class="col-6">
+											<div class="form-group">
+												<label for="pay_mode" class="control-label mb-1">Paymeny By</label>
+												<select name="pay_mode" id="pay_mode" class="form-control">
+													<option value="1">Cash</option>
+													<option value="2">Credit Card</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-6">
+											<label for="amount" class="control-label mb-1">Amount</label>
+											<div class="input-group">
+												<input id="amount" name="amount" type="text"
+													class="form-control" required="" />
 											</div>
 										</div>
 									</div>

@@ -5,11 +5,12 @@ class Cart
 
     private $member;
     private $items;
-
+    private $totalPaying;
     public function __construct()
     {
         $this->member = null;
         $this->items = array();
+        $this->totalPaying = 0;
     }
 
     public function getItems()
@@ -46,5 +47,32 @@ class Cart
         }
         $this->items = $item_new;
     }
+    
+    public function getCount(){
+        $count = 0;
+        foreach ($this->items as $cart_item){
+            $count+=$cart_item->getQty();
+        }
+        return $count;
+    }
+    
+    public function getTotalPrice() {
+        $price = 0;
+        foreach ($this->items as $cart_item){
+            $price+=$cart_item->getTotalPrice();
+        }
+        return $price;
+    }
+
+    public function getTotalPaying()
+    {
+        return $this->totalPaying;
+    }
+
+    public function setTotalPaying($totalPaying)
+    {
+        $this->totalPaying = $totalPaying;
+    }
+ 
 }
 ?>

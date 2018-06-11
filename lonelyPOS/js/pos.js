@@ -19,6 +19,25 @@ $(document).ready(function() {
 					},
 					success : function(data) {
 						$("#cart").html(data);
+						$("#total").load('system/total.php')
+					}
+				});
+			}
+		}, 500);
+	});
+	
+	$("#amount").on('propertychange input', function (e) {
+		delay(function() {
+			var amount = $('#amount').val();
+			if (amount != '') {
+				$.ajax({
+					type : "POST",
+					url : "system/update_payment.php",
+					data : {
+						amount : amount
+					},
+					success : function(data) {
+						$("#total_full").html(data);
 					}
 				});
 			}
@@ -46,11 +65,34 @@ $(document).ready(function() {
 	$('#clear_cart_con').click(function() {
 		window.location = 'system/clear_cart.php';
 	});
+	
+	$('#clear_member').click(function() {
+		window.location = 'system/clear_member.php';
+	});
 
 	$('#clear_code').click(function() {
 		$('#b_code').val('');
 	});
-
+	
+	$('#payment_btn').click(function() {
+		$("#info_payment").load('system/update_info.php');
+		$("#total_full").load('system/update_payment.php');
+	});
+	
+	$('#guest_select').click(function() {
+		var code = '00001';
+		 $.ajax({
+			type : "POST",
+			url : "system/pos_get_member.php",
+			data : {
+				member_code : code
+			},
+			success : function(data) {
+				$("#member_code").html(data);
+			}
+		});
+	});
+	
 	$("#pos").click(function() {
 		$("#nonti_member_corr").attr("hidden", "hidden");
 		$("#nonti_member_not").attr("hidden", "hidden");
@@ -69,6 +111,7 @@ $(document).ready(function() {
 			},
 			success : function(data) {
 				$("#cart").html(data);
+				$("#total").load('system/total.php')
 			}
 		});
 	});

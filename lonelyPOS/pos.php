@@ -61,14 +61,14 @@ $page = $_SESSION['PAGE'];
 			<!-- END HEADER MOBILE-->
 
 		<!-- MENU SIDEBAR-->
-			<?php require 'includes/menu.php';?>
-			<!-- END MENU SIDEBAR-->
+			<?php require 'includes/menu_pos.php';?>
+		<!-- END MENU SIDEBAR-->
 
 		<!-- PAGE CONTAINER-->
-		<div class="page-container">
-			<?php require 'includes/header.php';?>
+		<div class="page-container-pos">
+			<?php require 'includes/header_pos.php';?>
 			<!-- MAIN CONTENT-->
-			<div class="main-content">
+			<div class="main-content-pos">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
 						<div class="row" id="pos">
@@ -82,10 +82,10 @@ $page = $_SESSION['PAGE'];
 											<div class="form-group">
 												<div class="input-group">
 												<?php
-            if ($cart->getMember() != null) {
-                $member = $cart->getMember();
-                $name = $member->getFname() . ' ' . $member->getLname();
-                ?>
+                                                    if ($cart->getMember() != null) {
+                                                        $member = $cart->getMember();
+                                                        $name = $member->getFname() . ' ' . $member->getLname();
+                                                        ?>
 														<input id="member_code" name="member_code" type="text"
 														class="form-control" aria-required="true"
 														aria-invalid="false" placeholder="Member Code"
@@ -96,8 +96,8 @@ $page = $_SESSION['PAGE'];
 														aria-invalid="false" placeholder="Member Code">
 											<?php
             
-}
-            ?>
+                                                    }
+                                                                ?>
 													<div class="input-group-btn">
 														<button type="button" class="btn btn-primary"
 															data-toggle="modal" data-target="#member_add">
@@ -224,29 +224,31 @@ $page = $_SESSION['PAGE'];
 											</thead>
 											<tbody>
 												<?php
-            if ($cart->getItems() != null) {
-                foreach ($cart->getItems() as $pro) {
-                    echo '<tr>';
-                    echo '<td>' . $pro->getName() . '</td>';
-                    echo '<td>' . $pro->getPrice() . '</td>';
-                    echo '<td>' . $pro->getQty() . '</td>';
-                    echo '<td>100</td>';
-                    echo '<td>
+                                                if ($cart->getItems() != null) {
+                                                    foreach ($cart->getItems() as $pro) {
+                                                        echo '<tr>';
+                                                        echo '<td>' . $pro->getBrand() . ' '.$pro->getName(). ' '.$pro->getColor(). ' '.$pro->getSize().'</td>';
+                                                        echo '<td>' . $pro->getPrice() . '</td>';
+                                                        echo '<td>
+                                                                  <input id="b_code" name="b_code" type="text" class="input-sm form-control-sm form-control" size="1" value="' . $pro->getQty() . '"/>
+                                                              </td>';
+                                                        echo '<td>100</td>';
+                                                        echo '<td>
                                                                 <div class="table-data-feature">
                                             						<button class="item" data-toggle="tooltip"
                                             							data-placement="top" title="Delete">
                                             							<i class="zmdi zmdi-delete"></i>
                                             						</button>
                                             					</div>
-                                                            </td>';
-                    echo '</tr>';
-                }
-            } else {
-                echo '<tr>';
-                echo '<td colspan="5" class="text-center">Empty Cart</td>';
-                echo '</tr>';
-            }
-            ?>
+                                                              </td>';
+                                                        echo '</tr>';
+                                                    }
+                                                } else {
+                                                    echo '<tr>';
+                                                    echo '<td colspan="5" class="text-center">Empty Cart</td>';
+                                                    echo '</tr>';
+                                                }
+                                                ?>
 											</tbody>
 										</table>
 									</div>

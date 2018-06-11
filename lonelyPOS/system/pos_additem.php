@@ -44,7 +44,7 @@ if (isset($_POST['b_code'])) {
         if ($cart->getItems() != null) {
             foreach ($cart->getItems() as $pro) {
                 echo '<tr>';
-                echo '<td>' . $pro->getName() . '</td>';
+                echo '<td>' . $pro->getBrand() . ' '.$pro->getName(). ' '.$pro->getColor(). ' '.$pro->getSize().'</td>';
                 echo '<td>' . $pro->getPrice() . '</td>';
                 echo '<td> 
                           <input id="b_code" name="b_code" type="text" class="input-sm form-control-sm form-control" size="1" value="' . $pro->getQty() . '"/>

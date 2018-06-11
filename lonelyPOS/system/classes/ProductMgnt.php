@@ -9,11 +9,10 @@ class ProductMgnt
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "DELETE  FROM ProductLine WHERE BARCODE_ID='$b_code'";
         $query = $conn->query($sql);
-       
-            echo '<script language="javascript">';
-            echo 'alert("Delete success")';
-            echo '</script>';
-           
+        
+        echo '<script language="javascript">';
+        echo 'alert("Delete success")';
+        echo '</script>';
     }
 
     public static function getProduct($b_code)
@@ -39,7 +38,7 @@ class ProductMgnt
             return NULL;
         }
     }
-    
+
     public static function getProductByID($id)
     {
         require 'config/config.php';
@@ -57,16 +56,13 @@ class ProductMgnt
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
-            $product = new Product($result['PID'],$result['barid']
-                ,$result['bname'], $result['pname'],$result['cname'],
-                $result['size'],$result['price'],$result['quantity'],
-                $result['proimages'],$result['pdescription']);
+            $product = new Product($result['PID'], $result['barid'], $result['bname'], $result['pname'], $result['cname'], $result['size'], $result['price'], $result['quantity'], $result['proimages'], $result['pdescription']);
             return $product;
         } else {
             return NULL;
         }
     }
-    
+
     public static function getAllProduct()
     {
         require 'config/config.php';
@@ -102,7 +98,7 @@ class ProductMgnt
         return true;
     }
 
-    public static function addBrand($brand)
+    public static function checkBrand($brand)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
@@ -110,14 +106,7 @@ class ProductMgnt
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
-            return $idbrand = $result['ID'];
-        } else {
-            $sql = "INSERT INTO Brand(NAME) VALUES ('" . $brand . "')";
-            $query = $conn->query($sql);
-            $sql = "SELECT * FROM Brand WHERE ID='" . $brand . "'";
-            $query = $conn->query($sql);
-            $result = $query->fetch_assoc();
-            return $idbrand = $result['ID'];
+            return $result['ID'];
         }
     }
 
@@ -125,50 +114,48 @@ class ProductMgnt
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM Product WHERE NAME ='".$pname. "'";
-        $query = $conn->query($sql);
-        $result = $query->fetch_assoc();
-        if ($result) {
-            return $result['ID'];
-        } else {
-            $idbrand = ProductMgnt::addBrand($brand);
-            $sql = "INSERT INTO Product(BRAND_ID, NAME, DESCRIPTION) VALUES ('" .$idbrand. "','" .$pname. "','" .$description. "')";
-            $query = $conn->query($sql);
-            $sql = "SELECT ID FROM Product WHERE NAME ='".$pname."'";
-            $query = $conn->query($sql);
-            $result = $query->fetch_assoc();
-            return $result['ID'];
-        }
-    }
-
-    public static function addSize($size,$scode)
-    {
-        require 'config/config.php';
-        $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM SIZE WHERE CODE='" . $scode . "' AND NAME = '".$size."'";
+        $sql = "SELECT * FROM Product WHERE NAME='$pname'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
             return FALSE;
         } else {
-            $sql1 = "INSERT INTO SIZE (NAME,CODE) VALUES ('".$size."','" . $scode . "')";
+            $brandid = ProductMgnt::checkBrand($brand);
+            $sql = "INSERT INTO Product (BRAND_ID,NAME,DESCRIPTION) VALUES('$brandid','$pname','$description')";
+            $query = $conn->query($sql);
+            return TRUE;
+        }
+        return NULL;
+    }
+
+    public static function addSize($size, $scode)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM SIZE WHERE CODE='" . $scode . "' AND NAME = '" . $size . "'";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+        if ($result) {
+            return FALSE;
+        } else {
+            $sql1 = "INSERT INTO SIZE (NAME,CODE) VALUES ('" . $size . "','" . $scode . "')";
             $query = $conn->query($sql1);
-           
+            
             return TRUE;
         }
     }
 
-    public static function addColor($color,$hexcode)
+    public static function addColor($color, $hexcode)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM COLOR WHERE NAME='" . $color . "' AND HEX_CODE = '".$hexcode."'";
+        $sql = "SELECT * FROM COLOR WHERE NAME='" . $color . "' AND HEX_CODE = '" . $hexcode . "'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
             return FALSE;
         } else {
-            $sql1 = "INSERT INTO COLOR(NAME,HEX_CODE) VALUES ('" . $color . "','".$hexcode."')";
+            $sql1 = "INSERT INTO COLOR(NAME,HEX_CODE) VALUES ('" . $color . "','" . $hexcode . "')";
             $query = $conn->query($sql1);
             return TRUE;
         }
@@ -187,11 +174,15 @@ class ProductMgnt
             echo '</script>';
             exit();
         } else {
-            $idp = ProductMgnt::addProduct($pname, $description, $brand);
-            $sql = "INSERT INTO ProductLine (BARCODE_ID, PRODUCT_ID, COLOR_ID, SIZE_ID, PRICE, QUANTITY, PRO_images) VALUES ('$Barcode','$idp','$color','$size','$price','$quantity','$image')";
-            echo $sql;
+            ProductMgnt::addProduct($pname, $description, $brand);
+            $sql = "SELECT * FROM Product WHERE NAME='" . $pname . "'";
             $query = $conn->query($sql);
-           
+            $result = $query->fetch_assoc();
+            $sql = "INSERT INTO ProductLine (BARCODE_ID, PRODUCT_ID, COLOR_ID, SIZE_ID, PRICE, QUANTITY, PRO_images) VALUES ('$Barcode','".$result['ID']."','$color','$size','$price','$quantity','$image')";
+           // echo "\n";
+            //echo $sql;
+            $query = $conn->query($sql);
+            
             echo '<script language="javascript">';
             echo 'alert("add success")';
             echo '</script>';
@@ -232,10 +223,9 @@ class ProductMgnt
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "UPDATE ProductLine SET QUANTITY = '" . $quantity . "' WHERE BARCODE_ID='" . $b_code . "' ";
         $query = $conn->query($sql);
-            echo '<script language="javascript">';
-            echo 'alert("edit success")';
-            echo '</script>';
-        
+        echo '<script language="javascript">';
+        echo 'alert("edit success")';
+        echo '</script>';
     }
 
     public static function getAllbrand()
@@ -246,12 +236,13 @@ class ProductMgnt
         $query = $conn->query($sql);
         $resultArray = array();
         while ($result = $query->fetch_array()) {
-           $barr = new Brand($result['ID'],$result['NAME']);
+            $barr = new Brand($result['ID'], $result['NAME']);
             $resultArray[] = $barr;
         }
         sort($resultArray);
         return $resultArray;
     }
+
     public static function getAllSize()
     {
         require 'config/config.php';
@@ -260,12 +251,13 @@ class ProductMgnt
         $query = $conn->query($sql);
         $resultArray = array();
         while ($result = $query->fetch_array()) {
-            $size = new size($result['ID'],$result['NAME'],$result['CODE']);
+            $size = new size($result['ID'], $result['NAME'], $result['CODE']);
             $resultArray[] = $size;
         }
         sort($resultArray);
         return $resultArray;
     }
+
     public static function getAllColor()
     {
         require 'config/config.php';
@@ -274,7 +266,7 @@ class ProductMgnt
         $query = $conn->query($sql);
         $resultArray = array();
         while ($result = $query->fetch_array()) {
-            $color = new color($result['ID'],$result['NAME'],$result['HEX_CODE']);
+            $color = new color($result['ID'], $result['NAME'], $result['HEX_CODE']);
             $resultArray[] = $color;
         }
         sort($resultArray);

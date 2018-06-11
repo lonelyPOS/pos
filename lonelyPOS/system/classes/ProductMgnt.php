@@ -25,6 +25,7 @@ class ProductMgnt
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
+        $b_code = $conn->real_escape_string($b_code);
         $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
         ProductLine.PRODUCT_ID AS PID,
         ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,

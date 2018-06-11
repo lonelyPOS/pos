@@ -103,6 +103,23 @@ $page = $_SESSION['PAGE'];
 													</div>
 												</div>
 											</div>
+											<div id="nonti_member_corr" hidden>
+    											<div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+        											Member correct!!
+        											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        												<span aria-hidden="true">&times;</span>
+        											</button>
+    											</div>
+											</div>
+											<div id="nonti_member_not" hidden>
+        										<div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+        											Not found!!
+        											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        												<span aria-hidden="true">&times;</span>
+        											</button>
+    											</div>
+											</div>	
+	
 											<div class="form-group">
 												<div class="input-group">
 													    <input id="b_code" name="b_code" type="text"
@@ -115,10 +132,22 @@ $page = $_SESSION['PAGE'];
 													</div>
 												</div>
 											</div>
-											<div class="row mt-4"></div>
-											<div class="row mt-4"></div>
-											<div class="row mt-4"></div>
-											<div class="row mt-4"></div>
+											<div id="nonti_barcode_succ" hidden>
+    											<div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+        											Add Success!!
+        											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        												<span aria-hidden="true">&times;</span>
+        											</button>
+    											</div>
+											</div>
+											<div id="nonti_barcode_not" hidden>
+        										<div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+        											Not found!!
+        											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        												<span aria-hidden="true">&times;</span>
+        											</button>
+    											</div>
+											</div>														
 											<div class="row mt-4"></div>
 											<div class="row mt-4"></div>
 											<div class="row mt-4"></div>

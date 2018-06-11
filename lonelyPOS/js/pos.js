@@ -60,3 +60,24 @@ function disableMemInput() {
 function setMemInput(name) {
 	$('#member_code').val(name);
 }
+
+function showMemberCorr() {
+	$('#nonti_member_corr').removeAttr("hidden");
+	$('#nonti_member_not').attr("hidden","hidden");
+}
+
+function showMemberNot() {
+	$('#nonti_member_not').removeAttr("hidden");
+	$('#nonti_member_corr').attr("hidden","hidden");
+}
+
+function showItemAdd() {
+	$('#nonti_barcode_succ').removeAttr("hidden");
+	$('#nonti_barcode_not').attr("hidden","hidden");
+}
+
+function showItemNot() {
+	$('#nonti_barcode_not').removeAttr("hidden");
+	$('#nonti_barcode_succ').attr("hidden","hidden");
+}
+

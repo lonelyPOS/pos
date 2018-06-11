@@ -17,6 +17,9 @@ if (isset($_POST['b_code'])) {
         if (!$same) {
             $cart->addItems($product);
         }
+        echo '<script type="text/javascript">', 'showItemAdd();', '</script>';
+    }else{
+        echo '<script type="text/javascript">', 'showItemNot();', '</script>';
     }
     ?>
     <table class="table table-borderless table-data3">

@@ -1,7 +1,7 @@
 <?php
 require 'autoload.php';
 
-$image = $_FILES['file']['name'];
+$image = $_FILES['fileToUpload']['name'];
 $pname = $_POST['pname'];
 $barcode = $_POST['Barcode'];
 $brand = $_POST['Brand'];

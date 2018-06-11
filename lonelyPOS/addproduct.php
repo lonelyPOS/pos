@@ -127,9 +127,7 @@ $page = $_SESSION['PAGE'];
 
 														<div class="col-lg-12">
 
-															Select Product image: <input type="file"
-																name="file" id="file"
-																class="form-control" required=""> <br>
+															Select Product image:  <input type="file" name="fileToUpload" id="fileToUpload" required=""> <br>
 															<br>
 															<textarea name="Description" id="Description" rows=6
 																placeholder="Description" class="form-control"

@@ -2,7 +2,7 @@
 
 class MemberMgnt
 {
-
+    
     public static function getMemberByCode($b_code)
     {
         require 'config/config.php';
@@ -19,22 +19,6 @@ class MemberMgnt
         }
     }
     
-    public static function getMemberByID($id)
-    {
-        require 'config/config.php';
-        $conn = new mysqli($hostname, $username, $password, $dbname);
-        $id = $conn->real_escape_string($id);
-        $sql = "SELECT * FROM Member WHERE ID = '$id'";
-        $query = $conn->query($sql);
-        $result = $query->fetch_assoc();
-        if ($result) {
-            $member = new Member($result['ID'], $result['B_CODE'], $result['FNAME'], $result['LNAME'], $result['EMAIL'], $result['GENDER'], $result['B_DATE'], $result['ADDRESS'], $result['TEL']);
-            return $member;
-        } else {
-            return NULL;
-        }
-    }
-
     public static function getMember($m_fname)
     {
         require 'config/config.php';
@@ -49,7 +33,7 @@ class MemberMgnt
             return NULL;
         }
     }
-
+    
     public static function addMember($fname, $lname, $email, $add, $tel, $b_date, $gender)
     {
         require 'config/config.php';
@@ -62,7 +46,7 @@ class MemberMgnt
         $gender = $conn->real_escape_string($gender);
         $b_date = $conn->real_escape_string($b_date);
         $bcode = MemberMgnt::generateCodeMember();
-        $sql = "INSERT INTO Member (B_CODE,FNAME,LNAME,EMAIL,GENDER,B_DATE,ADDRESS,TEL)
+        $sql = "INSERT INTO Member (B_CODE,FNAME,LNAME,EMAIL, GENDER,B_DATE,ADDRESS, TEL)
 		VALUES('$bcode','$fname','$lname','$email','$gender','$b_date','$add','$tel');";
         $result = $conn->query($sql);
         $conn->close();
@@ -73,7 +57,7 @@ class MemberMgnt
             return null;
         }
     }
-
+    
     public static function generateCodeMember($length = 20)
     {
         require 'config/config.php';
@@ -88,7 +72,7 @@ class MemberMgnt
             }
         }
     }
-
+    
     public static function getAllMember()
     {
         require 'config/config.php';
@@ -98,8 +82,8 @@ class MemberMgnt
         $resultArray = array();
         while ($result = $query->fetch_array()) {
             
-            $product = new Product($result['ID'], $result['B_CODE'], $result['FNAME'], $result['LNAME'], $result['EMAIL'], $result['GENDER'], $result['B_DATE'], $result['ADDRESS'], $result['TEL']);
-            $resultArray[] = $product;
+            $member = new Member($result['ID'], $result['B_CODE'], $result['FNAME'], $result['LNAME'], $result['EMAIL'], $result['GENDER'], $result['B_DATE'], $result['ADDRESS'], $result['TEL']);
+            $resultArray[] = $member;
         }
         sort($resultArray);
         return $resultArray;

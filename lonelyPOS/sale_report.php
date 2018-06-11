@@ -96,7 +96,7 @@ $all_bill = BillMgnt::getAllBill();
 												    foreach ($all_bill as $bill) {
 												        echo '<tr>';
 												        echo '<td>'.$bill->getDate().'</td>';
-												        echo '<td>'.$bill->getBill_id().'</td>';
+												        echo '<td><a target="_blank" href="bill_show.php?bill_id='.$bill->getBill_id().'">'.$bill->getBill_id().'</a></td>';
 												        echo '<td>'.$bill->getMember()->getFname().'</td>';
 												        echo '<td>'.$bill->getEmployee()->getFNAME().'</td>';
 												        echo '<td>'.$bill->getTotal().' Baht</td>';

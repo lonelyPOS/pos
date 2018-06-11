@@ -1,6 +1,6 @@
 <aside class="menu-sidebar-pos d-none d-lg-block">
 	<div class="logo">
-		<a href="#"> <img src="images/icon/logo.png" alt="Cool Admin" />
+		<a href="#"> <img src="images/icon/smalllogo.png" alt="Cool Admin" />
 		</a>
 	</div>
 	<div class="menu-sidebar__content js-scrollbar1">

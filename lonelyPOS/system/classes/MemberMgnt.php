@@ -18,7 +18,21 @@ class MemberMgnt
             return NULL;
         }
     }
-    
+    public static function getMemberByID($id)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $id = $conn->real_escape_string($id);
+        $sql = "SELECT * FROM Member WHERE ID = '$id'";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+        if ($result) {
+            $member = new Member($result['ID'], $result['B_CODE'], $result['FNAME'], $result['LNAME'], $result['EMAIL'], $result['GENDER'], $result['B_DATE'], $result['ADDRESS'], $result['TEL']);
+            return $member;
+        } else {
+            return NULL;
+        }
+    }
     public static function getMember($m_fname)
     {
         require 'config/config.php';

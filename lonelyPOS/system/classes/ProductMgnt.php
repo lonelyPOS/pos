@@ -21,7 +21,7 @@ class ProductMgnt
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $b_code = $conn->real_escape_string($b_code);
         $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
-        Product.ID AS PID,
+        ProductLine.ID AS PID,
         ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,
         Brand.NAME AS bname, COLOR.NAME AS cname, SIZE.CODE AS size,
         Product.NAME AS pname,Product.DESCRIPTION AS pdescription
@@ -68,7 +68,7 @@ class ProductMgnt
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
-        ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,ProductLine.PRODUCT_ID AS pid,
+        ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,ProductLine.ID AS pid,
         Brand.NAME AS bname, COLOR.NAME AS cname, SIZE.CODE AS size,
         Product.NAME AS pname,Product.DESCRIPTION AS pdescription
         FROM ProductLine INNER JOIN Product ON ProductLine.PRODUCT_ID=Product.ID
@@ -210,7 +210,7 @@ class ProductMgnt
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
-        ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,ProductLine.PRODUCT_ID AS pid,
+        ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,ProductLine.ID AS pid,
         Brand.NAME AS bname, COLOR.NAME AS cname, SIZE.CODE AS size,
         Product.NAME AS pname,Product.DESCRIPTION AS pdescription
         FROM ProductLine INNER JOIN Product ON ProductLine.PRODUCT_ID=Product.ID

@@ -181,15 +181,17 @@ $page = $_SESSION['PAGE'];
 											<div class="row mt-4"></div>
 											<div class="row mt-3"></div>
 											<div class="table-responsive">
-												<table class="table table-top-campaign">
+												<table class="table table-top-campaign" id="total">
 													<tbody>
 														<tr>
 															<td>Total Items</td>
-															<td>10</td>
+															<td><?php echo $cart->getCount(); ?></td>
 														</tr>
 														<tr>
 															<td>Total</td>
-															<td>$20,366.96</td>
+															<td><?php 
+															     echo number_format($cart->getTotalPrice(),2).' Baht';															     
+															?></td>
 														</tr>
 													</tbody>
 												</table>

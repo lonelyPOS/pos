@@ -19,6 +19,7 @@ $(document).ready(function() {
 					},
 					success : function(data) {
 						$("#cart").html(data);
+						$("#total").load('system/total.php')
 					}
 				});
 			}
@@ -46,11 +47,29 @@ $(document).ready(function() {
 	$('#clear_cart_con').click(function() {
 		window.location = 'system/clear_cart.php';
 	});
+	
+	$('#clear_member').click(function() {
+		window.location = 'system/clear_member.php';
+	});
 
 	$('#clear_code').click(function() {
 		$('#b_code').val('');
 	});
 
+	$('#guest_select').click(function() {
+		var code = '00001';
+		 $.ajax({
+			type : "POST",
+			url : "system/pos_get_member.php",
+			data : {
+				member_code : code
+			},
+			success : function(data) {
+				$("#member_code").html(data);
+			}
+		});
+	});
+	
 	$("#pos").click(function() {
 		$("#nonti_member_corr").attr("hidden", "hidden");
 		$("#nonti_member_not").attr("hidden", "hidden");
@@ -69,6 +88,7 @@ $(document).ready(function() {
 			},
 			success : function(data) {
 				$("#cart").html(data);
+				$("#total").load('system/total.php')
 			}
 		});
 	});

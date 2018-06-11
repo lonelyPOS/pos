@@ -40,6 +40,10 @@ class CartItem
     {
         $this->bcode = $bcode;
     }
+    
+    public function getTotalPrice(){
+        return $this->product->getPrice() * $this->qty;
+    }
  
 }
 ?>

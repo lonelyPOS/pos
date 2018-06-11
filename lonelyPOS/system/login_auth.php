@@ -17,9 +17,6 @@ if (! isset($_POST['username']) || ! isset($_POST['password'])) {
             $cart = new Cart();
             $_SESSION["CART"] = $cart;
             session_write_close();
-            echo "<script language=\"JavaScript\">";
-            echo "alert('Welcome " . $user->getFname() . " " . $user->getLname() . "')";
-            echo "</script>";
             echo "<script> document.location.href=\"../index.php\";</script>";
         } else {
             echo "<script language=\"JavaScript\">";

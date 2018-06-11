@@ -181,7 +181,7 @@ $productArr = ProductMgnt::getAllProduct();
 					<div class="row">
 						<div class="col-lg-4">
 							<?php $prodetail = ProductMgnt::getProduct($product->getBcode());?>
-							<img src="images/ <?php echo $prodetail->getImage();?>" alt="img"
+							<img src="images/<?php echo $prodetail->getImage();?>" alt="img"
 								class="img-responsive" />
 						</div>
 

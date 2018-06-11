@@ -139,10 +139,10 @@ class ProductMgnt
             return $result['ID'];
         } else {
             $idbrand = ProductMgnt::addBrand($brand);
-            $sql1 = "INSERT INTO Product(BRAND_ID, NAME, DESCRIPTION) VALUES ('" .$idbrand. "','" .$pname. "','" .$description. "')";
-            $query = $conn->query($sql1);
-            $sql2 = "SELECT ID FROM Product WHERE NAME ='".$pname."'";
-            $query = $conn->query($sql2);
+            $sql = "INSERT INTO Product(BRAND_ID, NAME, DESCRIPTION) VALUES ('" .$idbrand. "','" .$pname. "','" .$description. "')";
+            $query = $conn->query($sql);
+            $sql = "SELECT ID FROM Product WHERE NAME ='".$pname."'";
+            $query = $conn->query($sql);
             $result = $query->fetch_assoc();
             return $result['ID'];
         }

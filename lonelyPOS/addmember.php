@@ -20,7 +20,7 @@ $page = $_SESSION['PAGE'];
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>POS</title>
+<title>Add Member</title>
 
 <!-- Fontfaces CSS-->
 <link href="css/font-face.css" rel="stylesheet" media="all">

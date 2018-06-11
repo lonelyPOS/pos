@@ -6,15 +6,15 @@ if ($cart->getItems() != null) {
         echo '<td>' . $pro->getBrand() . ' ' . $pro->getName() . ' ' . $pro->getColor() . ' ' . $pro->getSize() . '</td>';
         echo '<td>' . $pro->getPrice() . '</td>';
         echo '<td>
-                <div class="row">
-                    <div class="col-6">
-                         <input id="b_code" name="b_code" type="text" class="input-sm form-control-sm form-control" size="1" value="' . $cart_item->getQty() . '"/>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-success btn-sm update-item">
-							<i class="fa fa-refresh"></i>
-						</button>
-                    </div>
+                <div class="row up_qty">
+                        <div class="col-6">
+                             <input id="qty" name="qty" type="text" class="input-sm form-control-sm form-control qty-up" size="1" value="' . $cart_item->getQty() . '" data-code="' . $pro->getId(). '"/>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-success btn-sm update-item">
+    							<i class="fa fa-refresh"></i>
+    						</button>
+                        </div>
                 </div>
               </td>';
         echo '<td>'.$cart_item->getTotalPrice().'</td>';

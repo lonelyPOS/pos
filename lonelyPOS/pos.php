@@ -168,6 +168,16 @@ $page = $_SESSION['PAGE'];
 													</button>
 												</div>
 											</div>
+											<div id="nonti_update_succ" hidden>
+												<div
+													class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+													Update Success!!
+													<button type="button" class="close" data-dismiss="alert"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+											</div>
 											<div class="row mt-4"></div>
 											<div class="row mt-4"></div>
 											<div class="row mt-4"></div>

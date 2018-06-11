@@ -1,6 +1,6 @@
 <?php
 require 'autoload.php';
-echo $_POST['del'];
+//echo $_POST['del'];
 $b_code = $_POST['del'];
 
 

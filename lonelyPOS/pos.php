@@ -71,7 +71,7 @@ $page = $_SESSION['PAGE'];
 			<div class="main-content">
 				<div class="section__content section__content--p30">
 					<div class="container-fluid">
-						<div class="row">
+						<div class="row" id="pos">
 							<!-- workspace -->
 							<div class="col-lg-4">
 								<!--panel-->
@@ -81,20 +81,23 @@ $page = $_SESSION['PAGE'];
 										<form action="#" method="post">
 											<div class="form-group">
 												<div class="input-group">
-												<?php 
-													if($cart->getMember()!=null){ 
-													   $member = $cart->getMember();
-													   $name = $member->getFname().' '.$member->getLname();
-													?>
+												<?php
+            if ($cart->getMember() != null) {
+                $member = $cart->getMember();
+                $name = $member->getFname() . ' ' . $member->getLname();
+                ?>
 														<input id="member_code" name="member_code" type="text"
 														class="form-control" aria-required="true"
-														aria-invalid="false" placeholder="Member Code" value = "<?php echo $name; ?>" disabled>
+														aria-invalid="false" placeholder="Member Code"
+														value="<?php echo $name; ?>" disabled>
 											<?php	}else{ ?>
 														<input id="member_code" name="member_code" type="text"
 														class="form-control" aria-required="true"
 														aria-invalid="false" placeholder="Member Code">
-											<?php }
-													?>
+											<?php
+            
+}
+            ?>
 													<div class="input-group-btn">
 														<button type="button" class="btn btn-primary"
 															data-toggle="modal" data-target="#member_add">
@@ -104,50 +107,59 @@ $page = $_SESSION['PAGE'];
 												</div>
 											</div>
 											<div id="nonti_member_corr" hidden>
-    											<div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
-        											Member correct!!
-        											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        												<span aria-hidden="true">&times;</span>
-        											</button>
-    											</div>
+												<div
+													class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+													Member correct!!
+													<button type="button" class="close" data-dismiss="alert"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
 											</div>
 											<div id="nonti_member_not" hidden>
-        										<div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
-        											Not found!!
-        											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        												<span aria-hidden="true">&times;</span>
-        											</button>
-    											</div>
-											</div>	
-	
+												<div
+													class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+													Not found!!
+													<button type="button" class="close" data-dismiss="alert"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+											</div>
+
 											<div class="form-group">
 												<div class="input-group">
-													    <input id="b_code" name="b_code" type="text"
+													<input id="b_code" name="b_code" type="text"
 														class="form-control" aria-required="true"
 														aria-invalid="false" placeholder="Please scan barcode">
 													<div class="input-group-btn">
-														<button type="button" class="btn btn-primary" id="clear_code">
+														<button type="button" class="btn btn-primary"
+															id="clear_code">
 															<i class="fa fa-eraser"></i>
 														</button>
 													</div>
 												</div>
 											</div>
 											<div id="nonti_barcode_succ" hidden>
-    											<div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
-        											Add Success!!
-        											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        												<span aria-hidden="true">&times;</span>
-        											</button>
-    											</div>
+												<div
+													class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+													Add Success!!
+													<button type="button" class="close" data-dismiss="alert"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
 											</div>
 											<div id="nonti_barcode_not" hidden>
-        										<div class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
-        											Not found!!
-        											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        												<span aria-hidden="true">&times;</span>
-        											</button>
-    											</div>
-											</div>														
+												<div
+													class="sufee-alert alert with-close alert-danger alert-dismissible fade show">
+													Not found!!
+													<button type="button" class="close" data-dismiss="alert"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+											</div>
 											<div class="row mt-4"></div>
 											<div class="row mt-4"></div>
 											<div class="row mt-4"></div>
@@ -212,14 +224,14 @@ $page = $_SESSION['PAGE'];
 											</thead>
 											<tbody>
 												<?php
-                                                    if ($cart->getItems() != null) {
-                                                        foreach ($cart->getItems() as $pro) {
-                                                            echo '<tr>';
-                                                            echo '<td>' . $pro->getName() . '</td>';
-                                                            echo '<td>' . $pro->getPrice() . '</td>';
-                                                            echo '<td>' . $pro->getQty() . '</td>';
-                                                            echo '<td>100</td>';
-                                                            echo '<td>
+            if ($cart->getItems() != null) {
+                foreach ($cart->getItems() as $pro) {
+                    echo '<tr>';
+                    echo '<td>' . $pro->getName() . '</td>';
+                    echo '<td>' . $pro->getPrice() . '</td>';
+                    echo '<td>' . $pro->getQty() . '</td>';
+                    echo '<td>100</td>';
+                    echo '<td>
                                                                 <div class="table-data-feature">
                                             						<button class="item" data-toggle="tooltip"
                                             							data-placement="top" title="Delete">
@@ -227,14 +239,14 @@ $page = $_SESSION['PAGE'];
                                             						</button>
                                             					</div>
                                                             </td>';
-                                                            echo '</tr>';
-                                                        }
-                                                    } else {
-                                                        echo '<tr>';
-                                                        echo '<td colspan="5" class="text-center">Empty Cart</td>';
-                                                        echo '</tr>';
-                                                    }
-                                                    ?>
+                    echo '</tr>';
+                }
+            } else {
+                echo '<tr>';
+                echo '<td colspan="5" class="text-center">Empty Cart</td>';
+                echo '</tr>';
+            }
+            ?>
 											</tbody>
 										</table>
 									</div>
@@ -281,40 +293,49 @@ $page = $_SESSION['PAGE'];
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<div class="modal-body">
-								<form action="" method="post" novalidate="novalidate">
+							<form action="system/add_member.php" method="post">
+								<div class="modal-body">
 									<div class="row">
 										<div class="col-6">
 											<div class="form-group">
 												<label for="m_fname" class="control-label mb-1">Firstname</label>
 												<input id="m_fname" name="m_fname" type="text"
-													class="form-control" aria-required="true"
-													aria-invalid="false" placeholder="Firstname" />
+													class="form-control" placeholder="Firstname" required="" />
 											</div>
 										</div>
 										<div class="col-6">
 											<label for="m_lname" class="control-label mb-1">Lastname</label>
 											<div class="input-group">
 												<input id="m_lname" name="m_lname" type="text"
-													class="form-control" aria-required="true"
-													aria-invalid="false" placeholder="lasrname" />
+													class="form-control" placeholder="lasrname" required="" />
 											</div>
 										</div>
 									</div>
-									<div class="form-group">
-										<label for="m_email" class="control-label mb-1">Email</label>
-										<div class="input-group">
-											<input id="m_email" name="m_email" type="text"
-												class="form-control" aria-required="true"
-												aria-invalid="false" placeholder="Email" />
+									<div class="row">
+										<div class="col-6">
+											<div class="form-group">
+												<label for="m_email" class="control-label mb-1">Email</label>
+												<div class="input-group">
+													<input id="m_email" name="m_email" type="text"
+														class="form-control" placeholder="Email" required="" />
+												</div>
+											</div>
+										</div>
+										<div class="col-6">
+											<div class="form-group">
+												<label for="m_b_date" class="control-label mb-1">Birthday</label>
+												<div class="input-group">
+													<input id="m_b_date" name="m_b_date" type="text"
+														class="form-control" placeholder="dd-mm-yyyy" required="" />
+												</div>
+											</div>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="m_adds" class="control-label mb-1">Address</label>
 										<div class="input-group">
 											<input id="m_adds" name="m_adds" type="text"
-												class="form-control" aria-required="true"
-												aria-invalid="false" placeholder="Address" />
+												class="form-control" placeholder="Address" required="" />
 										</div>
 									</div>
 									<div class="row">
@@ -322,30 +343,30 @@ $page = $_SESSION['PAGE'];
 											<div class="form-group">
 												<label for="m_tel" class="control-label mb-1">Tel</label> <input
 													id="m_tel" name="m_tel" type="text" class="form-control"
-													aria-required="true" aria-invalid="false" placeholder="Tel" />
+													placeholder="Tel" required="" />
 											</div>
 										</div>
 										<div class="col-6">
 											<div class="form-group">
 												<label for="m_lname" class="control-label mb-1">Gender</label>
 												<select name="m_gender" id="m_gender" class="form-control">
-													<option value="m">Male</option>
-													<option value="f">Female</option>
+													<option value="M">Male</option>
+													<option value="F">Female</option>
 												</select>
 											</div>
 										</div>
 									</div>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-danger btn-sm"
-									data-dismiss="modal">
-									<i class="fa fa-ban"></i> Cancel
-								</button>
-								<button type="button" class="btn btn-primary btn-sm">
-									<i class="fa fa-dot-circle-o"></i> Confirm
-								</button>
-							</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-danger btn-sm"
+										data-dismiss="modal">
+										<i class="fa fa-ban"></i> Cancel
+									</button>
+									<button type="submit" class="btn btn-primary btn-sm">
+										<i class="fa fa-dot-circle-o"></i> Confirm
+									</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>

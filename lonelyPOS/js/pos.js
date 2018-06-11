@@ -1,51 +1,61 @@
-
 $(document).ready(function() {
-	var delay = (function(){
+	var delay = (function() {
 		var timer = 0;
-		return function(callback, ms){
-			clearTimeout (timer);
+		return function(callback, ms) {
+			clearTimeout(timer);
 			timer = setTimeout(callback, ms);
 		};
 	})();
-	
+
 	$("#b_code").keyup(function() {
-		delay(function(){
+		delay(function() {
 			var code = $('#b_code').val();
-			$.ajax({
-				type : "POST",
-				url : "system/pos_additem.php",
-				data : {
-					b_code : code
-				},
-				success : function(data) {
-					$("#cart").html(data);
-				}
-			});
-		}, 500 );
+			if (code != '') {
+				$.ajax({
+					type : "POST",
+					url : "system/pos_additem.php",
+					data : {
+						b_code : code
+					},
+					success : function(data) {
+						$("#cart").html(data);
+					}
+				});
+			}
+		}, 500);
 	});
 
 	$("#member_code").keyup(function() {
-		delay(function(){
+		delay(function() {
 			var code = $('#member_code').val();
-			$.ajax({
-				type : "POST",
-				url : "system/pos_get_member.php",
-				data : {
-					member_code : code
-				},
-				success : function(data) {
-					$("#member_code").html(data);
-				}
-			});
-		}, 1000 );
+			if (code != '') {
+				$.ajax({
+					type : "POST",
+					url : "system/pos_get_member.php",
+					data : {
+						member_code : code
+					},
+					success : function(data) {
+						$("#member_code").html(data);
+					}
+				});
+			}
+		}, 1000);
 	});
-	
+
 	$('#clear_cart_con').click(function() {
 		window.location = 'system/clear_cart.php';
 	});
-	
+
 	$('#clear_code').click(function() {
 		$('#b_code').val('');
+	});
+
+	$("#pos").click(function() {
+		$("#nonti_member_corr").attr("hidden", "hidden");
+		$("#nonti_member_not").attr("hidden", "hidden");
+		$("#nonti_barcode_succ").attr("hidden", "hidden");
+		$("#nonti_barcode_not").attr("hidden", "hidden");
 	});
 });
 
@@ -63,21 +73,20 @@ function setMemInput(name) {
 
 function showMemberCorr() {
 	$('#nonti_member_corr').removeAttr("hidden");
-	$('#nonti_member_not').attr("hidden","hidden");
+	$('#nonti_member_not').attr("hidden", "hidden");
 }
 
 function showMemberNot() {
 	$('#nonti_member_not').removeAttr("hidden");
-	$('#nonti_member_corr').attr("hidden","hidden");
+	$('#nonti_member_corr').attr("hidden", "hidden");
 }
 
 function showItemAdd() {
 	$('#nonti_barcode_succ').removeAttr("hidden");
-	$('#nonti_barcode_not').attr("hidden","hidden");
+	$('#nonti_barcode_not').attr("hidden", "hidden");
 }
 
 function showItemNot() {
 	$('#nonti_barcode_not').removeAttr("hidden");
-	$('#nonti_barcode_succ').attr("hidden","hidden");
+	$('#nonti_barcode_succ').attr("hidden", "hidden");
 }
-

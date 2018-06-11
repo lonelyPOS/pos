@@ -1,7 +1,7 @@
 <?php
 require 'autoload.php';
-$pid = $_POST['Product_ID'];
-$image = $_FILES['fileToUpload']['name'];
+
+$image = $_FILES['file']['name'];
 $pname = $_POST['pname'];
 $barcode = $_POST['Barcode'];
 $brand = $_POST['Brand'];
@@ -11,7 +11,7 @@ $price = $_POST['Price'];
 $quantity=$_POST['Quantity'];
 $description =$_POST['Description'];
 
-if (empty($pid) or empty($pname) or empty($barcode) or empty($brand) or empty($size) or empty($color) or empty($price) or empty($quantity) or empty($description)) {
+if ( empty($pname) or empty($barcode) or empty($price) or empty($quantity) or empty($description)) {
     echo "<script language=\"JavaScript\">";
     echo "alert('Please fill information.')";
     echo "</script>";
@@ -60,7 +60,7 @@ if (empty($pid) or empty($pname) or empty($barcode) or empty($brand) or empty($s
                 // echo "Sorry, there was an error uploading your file.";
             }
         }
-        ProductMgnt::addProductLine($pid, $pname, $Barcode, $brand, $size, $color, $price, $description, $quantity, $image);
+       ProductMgnt::addProductLine($pname, $barcode, $brand, $size, $color, $price, $description, $quantity, $image);
     } else {
         echo "<script language=\"JavaScript\">";
         echo "alert('Have this product already.')";

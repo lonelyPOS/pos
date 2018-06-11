@@ -109,7 +109,22 @@ class ProductMgnt
             return $result['ID'];
         }
     }
-
+    public static function addBrand($brand)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM Brand WHERE NAME = '" . $brand . "'";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+        if ($result) {
+            return FALSE;
+        } else {
+            $sql1 = "INSERT INTO Brand (NAME) VALUES ('" .$brand."')";
+            $query = $conn->query($sql1);
+            
+            return TRUE;
+        }
+    }
     public static function addProduct($pname, $description, $brand)
     {
         require 'config/config.php';

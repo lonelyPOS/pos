@@ -25,6 +25,24 @@ $(document).ready(function() {
 			}
 		}, 500);
 	});
+	
+	$("#amount").on('propertychange input', function (e) {
+		delay(function() {
+			var amount = $('#amount').val();
+			if (amount != '') {
+				$.ajax({
+					type : "POST",
+					url : "system/update_payment.php",
+					data : {
+						amount : amount
+					},
+					success : function(data) {
+						$("#total_full").html(data);
+					}
+				});
+			}
+		}, 500);
+	});
 
 	$("#member_code").keyup(function() {
 		delay(function() {
@@ -55,7 +73,12 @@ $(document).ready(function() {
 	$('#clear_code').click(function() {
 		$('#b_code').val('');
 	});
-
+	
+	$('#payment_btn').click(function() {
+		$("#info_payment").load('system/update_info.php');
+		$("#total_full").load('system/update_payment.php');
+	});
+	
 	$('#guest_select').click(function() {
 		var code = '00001';
 		 $.ajax({

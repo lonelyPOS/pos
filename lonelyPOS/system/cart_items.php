@@ -17,7 +17,7 @@ if ($cart->getItems() != null) {
                     </div>
                 </div>
               </td>';
-        echo '<td>100</td>';
+        echo '<td>'.$cart_item->getTotalPrice().'</td>';
         echo '<td>
                   <div class="table-data-feature">
                        <a href="#" class="item remove-item" data-code="' . $pro->getBcode() . '"><i class="zmdi zmdi-delete"></i></a>

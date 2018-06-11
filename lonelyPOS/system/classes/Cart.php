@@ -5,11 +5,12 @@ class Cart
 
     private $member;
     private $items;
-
+    private $totalPaying;
     public function __construct()
     {
         $this->member = null;
         $this->items = array();
+        $this->totalPaying = 0;
     }
 
     public function getItems()
@@ -62,5 +63,16 @@ class Cart
         }
         return $price;
     }
+
+    public function getTotalPaying()
+    {
+        return $this->totalPaying;
+    }
+
+    public function setTotalPaying($totalPaying)
+    {
+        $this->totalPaying = $totalPaying;
+    }
+ 
 }
 ?>

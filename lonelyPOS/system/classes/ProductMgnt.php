@@ -45,7 +45,7 @@ class ProductMgnt
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $id = $conn->real_escape_string($id);
         $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
-        ProducT.ID AS PID,  
+        Product.ID AS PID,  
         ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,
         Brand.NAME AS bname, COLOR.NAME AS cname, SIZE.CODE AS size,
         Product.NAME AS pname,Product.DESCRIPTION AS pdescription

@@ -19,6 +19,7 @@
 
 						<li><a href="listproduct.php"><i class="fas fa-search-plus"></i>List Product</a></li>
 						<li><a href="addproduct.php"><i class="fas fa-plus"></i>Add Product</a></li>
+						<li><a href="addBrand.php"><i class="fas fa-plus"></i>Add Brand,Size,Color</a></li>
 						<li><a href="#"><i class="fas fa-search-plus"></i>Print Barcode</a></li>
 				
 

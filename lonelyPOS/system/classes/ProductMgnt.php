@@ -9,18 +9,11 @@ class ProductMgnt
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "DELETE  FROM ProductLine WHERE BARCODE_ID='$b_code'";
         $query = $conn->query($sql);
-        $result = $query->fetch_assoc();
-        if ($result) {
+       
             echo '<script language="javascript">';
             echo 'alert("Delete success")';
             echo '</script>';
-            return TRUE;
-        } else {
-            echo '<script language="javascript">';
-            echo 'alert("Delete failed")';
-            echo '</script>';
-            return FALSE;
-        }
+           
     }
 
     public static function getProduct($b_code)
@@ -29,7 +22,7 @@ class ProductMgnt
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $b_code = $conn->real_escape_string($b_code);
         $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
-        ProductLine.PRODUCT_ID AS PID,
+        Product.ID AS PID,
         ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,
         Brand.NAME AS bname, COLOR.NAME AS cname, SIZE.CODE AS size,
         Product.NAME AS pname,Product.DESCRIPTION AS pdescription
@@ -239,18 +232,10 @@ class ProductMgnt
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "UPDATE ProductLine SET QUANTITY = '" . $quantity . "' WHERE BARCODE_ID='" . $b_code . "' ";
         $query = $conn->query($sql);
-        $result = $query->fetch_array();
-        if ($result) {
             echo '<script language="javascript">';
             echo 'alert("edit success")';
             echo '</script>';
-            return TRUE;
-        } else {
-            echo '<script language="javascript">';
-            echo 'alert("edit failed")';
-            echo '</script>';
-            return FALSE;
-        }
+        
     }
 
     public static function getAllbrand()

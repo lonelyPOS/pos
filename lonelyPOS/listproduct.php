@@ -98,13 +98,14 @@ $productArr = ProductMgnt::getAllProduct();
 												<td><?php echo $product->getSize();?></td>
 												<td><?php echo $product->getColor();?></td>
 												<td class="text-right"><?php echo $product->getPrice()?></td>
+													<form action="system/edit_product.php" method="post">
 												<td class="text-right"><input type="text" id="quant" name="quant"
 													value=<?php echo $product->getQty()?> size="1" /></td>
 
 
 												<td class="text-right">
 													<div class="table-data-feature">
-													<form action="system/edit_product.php" method="post">
+												
 														<button type="submit" class="btn btn-secondary mb-1" name="edi" id="edi"
 															data-placement="top" title="Edit" value = <?php echo $product->getBcode();?>>
 															<i class="zmdi zmdi-edit"></i>

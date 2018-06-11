@@ -370,7 +370,7 @@ $page = $_SESSION['PAGE'];
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<form action="system/add_member.php" method="post">
+							<form action="system/payment.php" method="post">
 								<div class="modal-body">
 									<div class="row">
 										<div class="col-12">			
@@ -443,6 +443,7 @@ $page = $_SESSION['PAGE'];
 										data-dismiss="modal">
 										<i class="fa fa-ban"></i> Cancel
 									</button>
+									<input id="mode" name="mode" type="hidden" value="payment"/>
 									<button type="submit" class="btn btn-primary btn-sm">
 										<i class="fa fa-dot-circle-o"></i> Confirm
 									</button>

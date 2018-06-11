@@ -13,7 +13,7 @@ class LoginMgnt
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
-            $acc = new Employee($result["USERNAME"], $result["PASSWORD"], $result["TYPE"], $result["EMAIL"], $result["FNAME"], $result["LNAME"], $result["GENDER"], $result["CITIZEN_ID"], $result["TEL"]);
+            $acc = new Employee($result["ID"],$result["USERNAME"], $result["PASSWORD"], $result["TYPE"], $result["EMAIL"], $result["FNAME"], $result["LNAME"], $result["GENDER"], $result["CITIZEN_ID"], $result["TEL"]);
             $conn->close();
             return $acc;
         }

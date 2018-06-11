@@ -47,7 +47,7 @@ class BillMgnt
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $mem_id = $bill->getMember()->getId();
-        $em_id = $bill->getEmployee()->getId();
+        $em_id = $bill->getEmployee()->getIndex();
         $date = $bill->getDate();
         $total = $bill->getTotal();
         $amount = $bill->getPayAmount();

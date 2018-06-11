@@ -5,7 +5,7 @@ class Cart
 
     private $member;
     private $items;
- // array LineItem
+
     public function __construct()
     {
         $this->member = null;
@@ -22,9 +22,9 @@ class Cart
         $this->items = $items;
     }
 
-    public function addItems($product)
+    public function addItems($cart_item)
     {
-        return $this->items[] = $product;
+        return $this->items[] = $cart_item;
     }
 
     public function setMember($member)
@@ -35,6 +35,16 @@ class Cart
     public function getMember()
     {
         return $this->member;
+    }
+    
+    public function removeItemsByBCode($b_code){
+        $item_new = array();
+        foreach ($this->items as $cart_item){
+            if($cart_item->getBcode() != $b_code){
+                $item_new [] = $cart_item;
+            }
+        }
+        $this->items = $item_new;
     }
 }
 ?>

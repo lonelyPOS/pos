@@ -57,6 +57,21 @@ $(document).ready(function() {
 		$("#nonti_barcode_succ").attr("hidden", "hidden");
 		$("#nonti_barcode_not").attr("hidden", "hidden");
 	});
+	
+	$("#cart").on('click', 'a.remove-item', function(e) {
+		e.preventDefault(); 
+		var code = $(this).attr('data-code');
+		$.ajax({
+			type : "POST",
+			url : "system/remove_item.php",
+			data : {
+				b_code : code
+			},
+			success : function(data) {
+				$("#cart").html(data);
+			}
+		});
+	});
 });
 
 function clearBCODE() {

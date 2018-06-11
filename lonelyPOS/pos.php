@@ -98,8 +98,16 @@ $page = $_SESSION['PAGE'];
             
                                                     }
                                                                 ?>
-													<div class="input-group-btn">
+													<div class="input-group-btn">														
 														<button type="button" class="btn btn-primary"
+															id="clear_member" title="Delete">
+															<i class="fa fa-eraser"></i>
+														</button>
+														<button type="button" class="btn btn-info"
+															id="guest_select">
+															<i class="fa fa-user" title="Guest"></i>
+														</button>
+														<button type="button" class="btn btn-warning"
 															data-toggle="modal" data-target="#member_add">
 															<i class="fa fa-plus"></i>
 														</button>
@@ -223,32 +231,7 @@ $page = $_SESSION['PAGE'];
 												</tr>
 											</thead>
 											<tbody>
-												<?php
-                                                if ($cart->getItems() != null) {
-                                                    foreach ($cart->getItems() as $pro) {
-                                                        echo '<tr>';
-                                                        echo '<td>' . $pro->getBrand() . ' '.$pro->getName(). ' '.$pro->getColor(). ' '.$pro->getSize().'</td>';
-                                                        echo '<td>' . $pro->getPrice() . '</td>';
-                                                        echo '<td>
-                                                                  <input id="b_code" name="b_code" type="text" class="input-sm form-control-sm form-control" size="1" value="' . $pro->getQty() . '"/>
-                                                              </td>';
-                                                        echo '<td>100</td>';
-                                                        echo '<td>
-                                                                <div class="table-data-feature">
-                                            						<button class="item" data-toggle="tooltip"
-                                            							data-placement="top" title="Delete">
-                                            							<i class="zmdi zmdi-delete"></i>
-                                            						</button>
-                                            					</div>
-                                                              </td>';
-                                                        echo '</tr>';
-                                                    }
-                                                } else {
-                                                    echo '<tr>';
-                                                    echo '<td colspan="5" class="text-center">Empty Cart</td>';
-                                                    echo '</tr>';
-                                                }
-                                                ?>
+												<?php include 'system/cart_items.php'; ?>
 											</tbody>
 										</table>
 									</div>

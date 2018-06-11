@@ -62,7 +62,7 @@ class MemberMgnt
         $gender = $conn->real_escape_string($gender);
         $b_date = $conn->real_escape_string($b_date);
         $bcode = MemberMgnt::generateCodeMember();
-        $sql = "INSERT INTO Member (B_CODE,FNAME,LNAME,EMAIL, GENDER,B_DATE,ADDRESS, TEL)
+        $sql = "INSERT INTO Member (B_CODE,FNAME,LNAME,EMAIL,GENDER,B_DATE,ADDRESS,TEL)
 		VALUES('$bcode','$fname','$lname','$email','$gender','$b_date','$add','$tel');";
         $result = $conn->query($sql);
         $conn->close();

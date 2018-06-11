@@ -7,7 +7,7 @@ if($_POST){
     $add = $_POST['m_adds'];
     $tel = $_POST['m_tel'];
     $gender = $_POST['m_gender'];
-    $b_date = $_POST['m_b_date'];
+    $b_date = $_POST['m_bdate'];
     $member = MemberMgnt::addMember($fname, $lname, $email, $add, $tel, $b_date, $gender);
     if($member != null){
         $member = MemberMgnt::getMemberByCode($member->getMem_code());

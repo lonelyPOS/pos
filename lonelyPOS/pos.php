@@ -310,10 +310,10 @@ $page = $_SESSION['PAGE'];
 										</div>
 										<div class="col-6">
 											<div class="form-group">
-												<label for="m_b_date" class="control-label mb-1">Birthday</label>
+												<label for="m_bdate" class="control-label mb-1">Birthday</label>
 												<div class="input-group">
-													<input id="m_b_date" name="m_b_date" type="text"
-														class="form-control" placeholder="dd-mm-yyyy" required="" />
+													<input id="m_bdate" name="m_bdate" type="date"
+														class="form-control" required="" />
 												</div>
 											</div>
 										</div>

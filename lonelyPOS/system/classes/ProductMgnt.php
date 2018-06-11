@@ -136,7 +136,7 @@ class ProductMgnt
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
-            return $idp = $result['ID'];
+            return $result['ID'];
         } else {
             $idbrand = ProductMgnt::addBrand($brand);
             $sql1 = "INSERT INTO Product(BRAND_ID, NAME, DESCRIPTION) VALUES ('" .$idbrand. "','" .$pname. "','" .$description. "')";
@@ -144,7 +144,7 @@ class ProductMgnt
             $sql2 = "SELECT ID FROM Product WHERE NAME ='".$pname."'";
             $query = $conn->query($sql2);
             $result = $query->fetch_assoc();
-            return $idp = $result['ID'];
+            return $result['ID'];
         }
     }
 

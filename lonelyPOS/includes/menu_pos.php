@@ -19,7 +19,7 @@
 
 						<li><a href="listproduct.php" title="List Product"><i class="fas fa-search-plus"></i></a></li>
 						<li><a href="addproduct.php" title="Add Product"><i class="fas fa-plus"></i></a></li>
-						<li><a href="#"><i class="fas fa-search-plus"></i></a></li>
+						<li><a href="#"><i class="fas fa-print"></i></a></li>
 					</ul>
 				</li>
 				<li

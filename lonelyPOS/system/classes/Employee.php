@@ -3,10 +3,11 @@
 class Employee
 {
 
-    private $id, $pass, $type, $email, $fname, $lname, $gender, $citID, $tel;
+    private $index,$id, $pass, $type, $email, $fname, $lname, $gender, $citID, $tel;
 
-    public function __construct($id, $pass, $type, $email, $fname, $lname, $gender, $citID, $tel)
+    public function __construct($index,$id, $pass, $type, $email, $fname, $lname, $gender, $citID, $tel)
     {
+        $this->index = $index;
         $this->id = $id;
         $this->pass = $pass;
         $this->type = $type;
@@ -107,5 +108,18 @@ class Employee
     {
         $this->citID = $citID;
     }
+
+    public function getIndex()
+    {
+        return $this->index;
+    }
+
+    public function setIndex($index)
+    {
+        $this->index = $index;
+    }
+
+    
+    
 }
 ?>

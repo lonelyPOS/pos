@@ -13,7 +13,7 @@ class BillMgnt
         if ($result) {
             $member = MemberMgnt::getMemberByID($result['MEMBER_ID']);
             $employee = EmployeeMgnt::getEmployeeByID($result['EMPLOYEE_ID']);
-            $bill = new Bill($result['ID'], $member, $result['EMPLOYEE_ID'], $result['DATE_TIME'], $result['TOTAL_PRICE'], $result['PAY_AMOUNT']);
+            $bill = new Bill($result['ID'], $member, $employee, $result['DATE_TIME'], $result['TOTAL_PRICE'], $result['PAY_AMOUNT']);
             $bill->setBillItems(BillMgnt::getBillItemsByBillID($bill_id));
             return $bill;
         }
@@ -47,7 +47,7 @@ class BillMgnt
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $mem_id = $bill->getMember()->getId();
-        $em_id = $bill->getEmployee()->getId();
+        $em_id = $bill->getEmployee()->getIndex();
         $date = $bill->getDate();
         $total = $bill->getTotal();
         $amount = $bill->getPayAmount();

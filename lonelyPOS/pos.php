@@ -310,10 +310,10 @@ $page = $_SESSION['PAGE'];
 										</div>
 										<div class="col-6">
 											<div class="form-group">
-												<label for="m_b_date" class="control-label mb-1">Birthday</label>
+												<label for="m_bdate" class="control-label mb-1">Birthday</label>
 												<div class="input-group">
-													<input id="m_b_date" name="m_b_date" type="text"
-														class="form-control" placeholder="dd-mm-yyyy" required="" />
+													<input id="m_bdate" name="m_bdate" type="date"
+														class="form-control" required="" />
 												</div>
 											</div>
 										</div>
@@ -370,7 +370,7 @@ $page = $_SESSION['PAGE'];
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
-							<form action="system/add_member.php" method="post">
+							<form action="system/payment.php" method="post">
 								<div class="modal-body">
 									<div class="row">
 										<div class="col-12">			
@@ -443,6 +443,7 @@ $page = $_SESSION['PAGE'];
 										data-dismiss="modal">
 										<i class="fa fa-ban"></i> Cancel
 									</button>
+									<input id="mode" name="mode" type="hidden" value="payment"/>
 									<button type="submit" class="btn btn-primary btn-sm">
 										<i class="fa fa-dot-circle-o"></i> Confirm
 									</button>

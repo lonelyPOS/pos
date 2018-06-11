@@ -20,7 +20,7 @@ $page = $_SESSION['PAGE'];
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>Add Product</title>
+<title>Add Brand , Color and Size</title>
 
 <!-- Fontfaces CSS-->
 <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -82,68 +82,47 @@ $page = $_SESSION['PAGE'];
 											<br>
 
 											<div class="card">
-												<div class="card-header">Add Product</div>
+												<div class="card-header">Add Brand , Color and Size</div>
 												<div class="card-body">
-													<form action="system/add_product.php" method="post">
+													<form action="system/add_brand.php" method="post">
 														<div class="col-12 col-md-6">
-															<br> <input type="text" id="pname" name="pname"
-																placeholder="Product Name" class="form-control"
-																required=""> <br> <input type="text" id="Barcode"
-																name="Barcode" placeholder="Barcode"
-																class="form-control" required=""> <br> 
-																<select name="Brand" id="Brand" class="form-control">
-																<option value="-1">Select brand</option>
-																<?php $productbrand = ProductMgnt::getAllbrand();?>
-																<?php foreach ($productbrand as $brand1) {?>
-																<option value=<?php echo $brand1->getId();?>><?php  echo $brand1->getName();?></option>
-																<?php }?>
-															</select> <br> <select name="size" id="size"
-																class="form-control">
-																<option value="-1">Select size</option>
-																<?php $productsize = ProductMgnt::getAllSize();?>
-																<?php foreach ($productsize as $size) {?>
-																<option value=<?php echo $size->getId();?>><?php echo $size->getCode();?></option>
-																<?php }?>
-															</select> <br> <select name="Colors" id="Colors"
-																class="form-control">
-																<option value="-1">Select Color</option>
-																<?php $productcolor = ProductMgnt::getAllColor();?>
-																<?php foreach ($productcolor as $color) {?>
-																<option value=<?php echo $color->getId();?>><?php echo $color->getName();?></option>
-																<?php }?>
+															<br> <input type="text" id="bname" name="bname"
+																placeholder="Brand Name" class="form-control"
+																required=""> <br> 
 																
-															</select> <br>
-															<div class="row">
-																<div class="col-lg-10">
-																	<input type="text" id="Price" name="Price"
-																		placeholder="Price " class="form-control" required="">
-																</div>
-																<div class="col-lg-2">BATH</div>
-															</div>
-															<br> <input type="text" id="Quantity" name="Quantity"
-																placeholder="Quantity" class="form-control" required="">
-															<br>
 														</div>
-
-														<div class="col-lg-12">
-
-															Select Product image: <input type="file"
-																name="file" id="file"
-																class="form-control" required=""> <br>
-															<br>
-															<textarea name="Description" id="Description" rows=6
-																placeholder="Description" class="form-control"
-																required=""></textarea>
-															<br>
-														</div>
-														<br>
-
 														<button type="submit"
 															class="btn btn-primary float-right offset-1 ">Confirm</button>
 													</form>
+													<br><br>
+													<form action="system/add_color.php" method="post">
+														<div class="col-12 col-md-6">
+															<br> <input type="text" id="cname" name="cname"
+																placeholder="Color Name" class="form-control"
+																required=""> <br> 
+																<input type="text" id="hexcode"
+																name="hexcode" placeholder="Hexcode"
+																class="form-control" required=""> 
+														</div>
+														<button type="submit"
+															class="btn btn-primary float-right offset-1 ">Confirm</button>
+													</form><br><br>
+													<form action="system/add_size.php" method="post">
+														<div class="col-12 col-md-6">
+															<br> <input type="text" id="sname" name="sname"
+																placeholder="Size Name" class="form-control"
+																required=""> <br> 
+																<input type="text" id="scode"
+																name="scode" placeholder="Size code(S,M,..)"
+																class="form-control" required=""> 
+														</div>
+														<button type="submit"
+															class="btn btn-primary float-right offset-1 ">Confirm</button>
+													</form>
+													
 												</div>
 											</div>
-
+											</div>
 										</div>
 									</div>
 								</div>

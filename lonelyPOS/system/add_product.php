@@ -1,18 +1,24 @@
 <?php
 require 'autoload.php';
-$name = $_REQUEST['pname'];
-$image = $_FILES['fileToUpload']['name'];
-$price = $_REQUEST['pprice'];
-$des = $_REQUEST['pdes'];
-$type = $_REQUEST['type'];
-if (empty($name) or empty($price) or empty($des) or empty($type)) {
+
+$image = $_FILES['file']['name'];
+$pname = $_POST['pname'];
+$barcode = $_POST['Barcode'];
+$brand = $_POST['Brand'];
+$size= $_POST['size'];
+$color =$_POST['Colors'];
+$price = $_POST['Price'];
+$quantity=$_POST['Quantity'];
+$description =$_POST['Description'];
+
+if ( empty($pname) or empty($barcode) or empty($price) or empty($quantity) or empty($description)) {
     echo "<script language=\"JavaScript\">";
     echo "alert('Please fill information.')";
     echo "</script>";
-    echo "<script> document.location.href=\"../add_product.php\";</script>";
+    echo "<script> document.location.href=\"../addproduct.php\";</script>";
     exit();
 } else {
-    if (ProductMgnt::checkProduct($name)) {
+    if (ProductMgnt::checkProduct($barcode)) {
         $target_dir = "../images/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
@@ -54,12 +60,12 @@ if (empty($name) or empty($price) or empty($des) or empty($type)) {
                 // echo "Sorry, there was an error uploading your file.";
             }
         }
-        ProductMgnt::addProduct($name, $image, $price, $des, $type);
+       ProductMgnt::addProductLine($pname, $barcode, $brand, $size, $color, $price, $description, $quantity, $image);
     } else {
         echo "<script language=\"JavaScript\">";
         echo "alert('Have this product already.')";
         echo "</script>";
-        echo "<script> document.location.href=\"../add_product.php\";</script>";
+        
         exit();
     }
 }

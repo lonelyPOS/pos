@@ -10,6 +10,7 @@ if($_POST){
     $b_date = $_POST['m_b_date'];
     $member = MemberMgnt::addMember($fname, $lname, $email, $add, $tel, $b_date, $gender);
     if($member != null){
+        $member = MemberMgnt::getMemberByCode($member->getMem_code());
         $cart->setMember($member);
         echo "<script language=\"JavaScript\">";
         echo "alert('Add member success!!')";

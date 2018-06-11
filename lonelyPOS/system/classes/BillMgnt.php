@@ -13,7 +13,7 @@ class BillMgnt
         if ($result) {
             $member = MemberMgnt::getMemberByID($result['MEMBER_ID']);
             $employee = EmployeeMgnt::getEmployeeByID($result['EMPLOYEE_ID']);
-            $bill = new Bill($result['ID'], $member, $result['EMPLOYEE_ID'], $result['DATE_TIME'], $result['TOTAL_PRICE'], $result['PAY_AMOUNT']);
+            $bill = new Bill($result['ID'], $member, $employee, $result['DATE_TIME'], $result['TOTAL_PRICE'], $result['PAY_AMOUNT']);
             $bill->setBillItems(BillMgnt::getBillItemsByBillID($bill_id));
             return $bill;
         }

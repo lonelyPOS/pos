@@ -20,7 +20,7 @@ $page = $_SESSION['PAGE'];
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>POS</title>
+<title>Add Product</title>
 
 <!-- Fontfaces CSS-->
 <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -85,9 +85,14 @@ $page = $_SESSION['PAGE'];
 												<div class="card-header">Add Product</div>
 												<div class="card-body">
 													<div class="col-12 col-md-6">
-														<input type="Product ID" id="input2-group3"
+														<input type="Product_ID" id="input2-group3"
 															name="input2-group3" placeholder="Product ID"
-															class="form-control"> <br>
+															class="form-control"> <br> <input type="Proname"
+															id="input2-group3" name="input2-group3"
+															placeholder="Product Name" class="form-control"> <br> <input
+															type="barcode" id="input2-group3" name="input2-group3"
+															placeholder="Barcode" class="form-control"> <br>
+
 														<div class="input-group">
 															<input type="brand" id="input2-group3"
 																name="input2-group3" placeholder="Brand"
@@ -150,18 +155,26 @@ $page = $_SESSION['PAGE'];
 																	class="form-control">
 															</div>
 															<div class="col-lg-2">BATH</div>
-
 														</div>
-														<br>
+														<br> <input type="Quantity" id="input2-group3"
+															name="input2-group3" placeholder="Quantity"
+															class="form-control"> <br>
 													</div>
 
 													<div class="col-lg-12">
+														<form action="upload.php" method="post"
+															enctype="multipart/form-data">
+															Select Product image: <input type="file"
+																name="fileToUpload" id="fileToUpload"> <input
+																type="submit" value="Upload Image" name="submit">
+														</form>
+														<br>
 														<textarea name="textarea-input" id="textarea-input" rows=6
 															" placeholder="Description" class="form-control"></textarea>
+
 													</div>
 													<br>
 
- 
 													<button type="button"
 														class="btn btn-primary float-right offset-1 "
 														data-toggle="modal" data-target="#makesure">Confirm</button>
@@ -222,7 +235,7 @@ $page = $_SESSION['PAGE'];
 					</div>
 				</div>
 			</div>
- 
+
 </body>
 
 </html>

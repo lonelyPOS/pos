@@ -23,11 +23,11 @@ class MemberMgnt
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM Member WHERE BARCODE_ID = '$b_code'"; // ทำไงอะ
+        $sql = "SELECT * FROM Member WHERE FNAME = '$m_fname'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
-            $product = new Product($result['ID'], $b_code, null, 'xxx', $result['COLOR_ID'], $result['SIZE_ID'], $result['PRICE'], $result['QUANTITY']);
+            $product = new Member($result['ID'], $result['B_CODE'], $result['FNAME'], $result['LNAME'], $result['EMAIL'], $result['GENDER'], $result['B_DATE'], $result['ADDRESS'], $result['TEL']);
             return $product;
         } else {
             return NULL;
@@ -73,51 +73,20 @@ class MemberMgnt
         }
     }
 
-    public static function getAllProduct()
+    public static function getAllMember()
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
-        ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,
-        Brand.NAME AS bname, COLOR.NAME AS cname, SIZE.CODE AS size, 
-        Product.NAME AS pname,Product.DESCRIPTION AS pdescription
-        FROM ProductLine INNER JOIN Product ON ProductLine.PRODUCT_ID=Product.ID
-        INNER JOIN Brand ON Product.BRAND_ID=Brand.ID
-        INNER JOIN COLOR ON ProductLine.COLOR_ID=COLOR.ID
-        INNER JOIN SIZE ON ProductLine.SIZE_ID=SIZE.ID";
+        $sql = "SELECT * FROM Member";
         $query = $conn->query($sql);
         $resultArray = array();
         while ($result = $query->fetch_array()) {
             
-            $product = new Product($result['PRODUCT_ID'], $result['barid'], $result['bname'], $result['pname'], $result['cname'], $result['size'], $result['price'], $result['quantity'], $result['proimages'], $result['pdescription']);
+            $product = new Product($result['ID'], $result['B_CODE'], $result['FNAME'], $result['LNAME'], $result['EMAIL'], $result['GENDER'], $result['B_DATE'], $result['ADDRESS'], $result['TEL']);
             $resultArray[] = $product;
         }
         sort($resultArray);
         return $resultArray;
-    }
-
-    public static function addProduct($name, $image, $price, $des, $type)
-    {
-        require 'config/config.php';
-        $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "INSERT INTO PRODUCT(PRO_NAME,PRO_IMAGE,PRO_PRICE,PRO_DESC,PRO_STOCKS,CAT_INDEX)
-		VALUES('" . $name . "','" . $image . "','" . $price . "','" . $des . "','0', '" . $type . "');";
-        echo $sql;
-        if ($conn->query($sql) === TRUE) {
-            echo "<script language=\"JavaScript\">";
-            echo "alert('Add new product successfully.')";
-            echo "</script>";
-            echo "<script> document.location.href=\"../add_product.php\";</script>";
-            exit();
-        } else {
-            echo "<script language=\"JavaScript\">";
-            echo "alert('Fail to add product.')";
-            echo "</script>";
-            echo "<script> document.location.href=\"../add_product.php\";</script>";
-            exit();
-        }
-        
-        $conn->close();
     }
 }
 

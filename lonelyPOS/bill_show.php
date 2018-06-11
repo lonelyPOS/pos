@@ -92,9 +92,9 @@ h3 {
 								<th
 									style="text-align: center; width: 50%; border-bottom: 2px solid #ddd;">Description</th>
 								<th
-									style="text-align: center; width: 12%; border-bottom: 2px solid #ddd;">Quantity</th>
-								<th
 									style="text-align: center; width: 24%; border-bottom: 2px solid #ddd;">Price</th>
+								<th
+									style="text-align: center; width: 12%; border-bottom: 2px solid #ddd;">Quantity</th>
 								<th
 									style="text-align: center; width: 26%; border-bottom: 2px solid #ddd;">Subtotal</th>
 							</tr>

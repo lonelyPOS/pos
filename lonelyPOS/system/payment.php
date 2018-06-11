@@ -17,9 +17,6 @@ if ($session_set) {
                $id = BillMgnt::createBill($bill);
                if($id != -1){
                    $_SESSION['CART'] = new Cart();
-                   echo "<script language=\"JavaScript\">";
-                   echo "alert('Create Bill Success!!!')";
-                   echo "</script>";
                    echo "<script> document.location.href=\"../bill_show.php?bill_id=$id\";</script>";
                }else{
                    echo "<script language=\"JavaScript\">";

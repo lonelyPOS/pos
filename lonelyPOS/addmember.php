@@ -82,68 +82,81 @@ $page = $_SESSION['PAGE'];
 											<br>
 											<div class="card">
 												<div class="card-header">Add Member</div>
-												<div class="card-body">
-
-													<div class="row">
-														<div class="col-6">
-															<div class="form-group">
-																<label for="m_fname" class="control-label mb-1">Firstname</label>
-																<input id="m_fname" name="m_fname" type="text"
-																	class="form-control" aria-required="true"
-																	aria-invalid="false" placeholder="Firstname" />
+												<form action="system/add_member.php" method="post">
+													<div class="card-body">
+														<div class="row">
+															<div class="col-6">
+																<div class="form-group">
+																	<label for="m_fname" class="control-label mb-1">Firstname</label>
+																	<input id="m_fname" name="m_fname" type="text"
+																		class="form-control" placeholder="Firstname"
+																		required="" />
+																</div>
+															</div>
+															<div class="col-6">
+																<label for="m_lname" class="control-label mb-1">Lastname</label>
+																<div class="input-group">
+																	<input id="m_lname" name="m_lname" type="text"
+																		class="form-control" placeholder="lasrname"
+																		required="" />
+																</div>
 															</div>
 														</div>
-														<div class="col-6">
-															<label for="m_lname" class="control-label mb-1">Lastname</label>
+														<div class="row">
+															<div class="col-6">
+																<div class="form-group">
+																	<label for="m_email" class="control-label mb-1">Email</label>
+																	<div class="input-group">
+																		<input id="m_email" name="m_email" type="text"
+																			class="form-control" placeholder="Email" required="" />
+																	</div>
+																</div>
+															</div>
+															<div class="col-6">
+																<div class="form-group">
+																	<label for="m_b_date" class="control-label mb-1">Birthday</label>
+																	<div class="input-group">
+																		<input id="m_b_date" name="m_b_date" type="text"
+																			class="form-control" placeholder="dd-mm-yyyy"
+																			required="" />
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label for="m_adds" class="control-label mb-1">Address</label>
 															<div class="input-group">
-																<input id="m_lname" name="m_lname" type="text"
-																	class="form-control" aria-required="true"
-																	aria-invalid="false" placeholder="lasrname" />
+																<input id="m_adds" name="m_adds" type="text"
+																	class="form-control" placeholder="Address" required="" />
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-6">
+																<div class="form-group">
+																	<label for="m_tel" class="control-label mb-1">Tel</label>
+																	<input id="m_tel" name="m_tel" type="text"
+																		class="form-control" placeholder="Tel" required="" />
+																</div>
+															</div>
+															<div class="col-6">
+																<div class="form-group">
+																	<label for="m_gender" class="control-label mb-1">Gender</label>
+																	<select name="m_gender" id="m_gender"
+																		class="form-control">
+																		<option value="M">Male</option>
+																		<option value="F">Female</option>
+																	</select>
+																</div>
+															</div>
+															<div class="col-6">
+																<div class="form-group">
+																	<button type="submit" class="btn btn-primary btn-sm">Confirm
+																	</button>
+																</div>
 															</div>
 														</div>
 													</div>
-													<div class="form-group">
-														<label for="m_email" class="control-label mb-1">Email</label>
-														<div class="input-group">
-															<input id="m_email" name="m_email" type="text"
-																class="form-control" aria-required="true"
-																aria-invalid="false" placeholder="Email" />
-														</div>
-													</div>
-													<div class="form-group">
-														<label for="m_adds" class="control-label mb-1">Address</label>
-														<div class="input-group">
-															<input id="m_adds" name="m_adds" type="text"
-																class="form-control" aria-required="true"
-																aria-invalid="false" placeholder="Address" />
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-6">
-															<div class="form-group">
-																<label for="m_tel" class="control-label mb-1">Tel</label>
-																<input id="m_tel" name="m_tel" type="text"
-																	class="form-control" aria-required="true"
-																	aria-invalid="false" placeholder="Tel" />
-															</div>
-														</div>
-														<div class="col-6">
-															<div class="form-group">
-																<label for="m_lname" class="control-label mb-1">Gender</label>
-																<select name="m_gender" id="m_gender"
-																	class="form-control">
-																	<option value="m">Male</option>
-																	<option value="f">Female</option>
-																</select>
-															</div>
-														</div>
-														<div>
-															<button type="button"
-																class="btn btn-primary float-right " data-toggle="modal"
-																data-target="#makesure">Confirm</button>
-														</div>
-													</div>
-												</div>
+												</form>
 											</div>
 										</div>
 									</div>

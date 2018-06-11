@@ -48,6 +48,33 @@ class ProductMgnt
         }
     }
     
+    public static function getProductByID($id)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $id = $conn->real_escape_string($id);
+        $sql = "SELECT ProductLine.BARCODE_ID AS barid ,ProductLine.PRO_images AS proimages,
+        ProductLine.PRODUCT_ID AS PID,
+        ProductLine.PRICE AS price , ProductLine.QUANTITY AS quantity,
+        Brand.NAME AS bname, COLOR.NAME AS cname, SIZE.CODE AS size,
+        Product.NAME AS pname,Product.DESCRIPTION AS pdescription
+        FROM ProductLine INNER JOIN Product ON ProductLine.PRODUCT_ID=Product.ID
+        INNER JOIN Brand ON Product.BRAND_ID=Brand.ID
+        INNER JOIN COLOR ON ProductLine.COLOR_ID=COLOR.ID
+        INNER JOIN SIZE ON ProductLine.SIZE_ID=SIZE.ID WHERE ProductLine.ID ='$id'";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+        if ($result) {
+            $product = new Product($result['PID'],$result['barid']
+                ,$result['bname'], $result['pname'],$result['cname'],
+                $result['size'],$result['price'],$result['quantity'],
+                $result['proimages'],$result['pdescription']);
+            return $product;
+        } else {
+            return NULL;
+        }
+    }
+    
     public static function getAllProduct()
     {
         require 'config/config.php';

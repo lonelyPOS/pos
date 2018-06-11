@@ -33,6 +33,14 @@
 						<li><a href="addmember.php"><i class="fas  fa-plus"></i>Add Member</a></li>
 					</ul>
 				</li>
+				<li
+					class="<?php if($page === 'report') { echo 'active ';}?>has-sub">
+					<a class="js-arrow" href="#"> <i class="fas fa-bar-chart-o"></i>Report
+				</a>
+					<ul class="list-unstyled navbar__sub-list js-sub-list">
+						<li><a href="sale_report.php"><i class="fas fa-bar-chart-o"></i>Sale Report</a></li>
+					</ul>
+				</li>
 			</ul>
 		</nav>
 	</div>

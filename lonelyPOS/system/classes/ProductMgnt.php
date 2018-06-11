@@ -7,17 +7,19 @@ class ProductMgnt
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "DELETE FROM ProducLine WHERE ID='$b_code'";
+        $sql = "DELETE  FROM ProductLine WHERE BARCODE_ID='$b_code'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
             echo '<script language="javascript">';
             echo 'alert("Delete success")';
             echo '</script>';
+            return TRUE;
         } else {
             echo '<script language="javascript">';
             echo 'alert("Delete failed")';
             echo '</script>';
+            return FALSE;
         }
     }
 
@@ -103,17 +105,17 @@ class ProductMgnt
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM Product WHERE NAME ='" . $pname . "'";
+        $sql = "SELECT * FROM Product WHERE NAME ='".$pname. "'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
             return $idp = $result['ID'];
         } else {
             $idbrand = ProductMgnt::addBrand($brand);
-            $sql1 = "INSERT INTO Product(BRAND_ID, NAME, DESCRIPTION) VALUES ('" . $idbrand . "','" . $pname . "','" . $description . "')";
+            $sql1 = "INSERT INTO Product(BRAND_ID, NAME, DESCRIPTION) VALUES ('" .$idbrand. "','" .$pname. "','" .$description. "')";
             $query = $conn->query($sql1);
-            $sql = "SELECT * FROM Product WHERE NAME ='" .$pname. "'";
-            $query = $conn->query($sql);
+            $sql2 = "SELECT ID FROM Product WHERE NAME ='".$pname."'";
+            $query = $conn->query($sql2);
             $result = $query->fetch_assoc();
             return $idp = $result['ID'];
         }
@@ -215,10 +217,12 @@ class ProductMgnt
             echo '<script language="javascript">';
             echo 'alert("edit success")';
             echo '</script>';
+            return TRUE;
         } else {
             echo '<script language="javascript">';
             echo 'alert("edit failed")';
             echo '</script>';
+            return FALSE;
         }
     }
 

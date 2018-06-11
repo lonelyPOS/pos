@@ -21,7 +21,7 @@ $productArr = ProductMgnt::getAllProduct();
 <meta name="keywords" content="au theme template">
 
 <!-- Title Page-->
-<title>POS</title>
+<title>List Product</title>
 
 <!-- Fontfaces CSS-->
 <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -81,7 +81,7 @@ $productArr = ProductMgnt::getAllProduct();
 										class="table table-borderless table-striped table-earning">
 										<thead>
 											<tr>
-												<th>brand</th>
+												<th >brand</th>
 												<th>name</th>
 												<th>size</th>
 												<th>color</th>
@@ -98,23 +98,25 @@ $productArr = ProductMgnt::getAllProduct();
 												<td><?php echo $product->getSize();?></td>
 												<td><?php echo $product->getColor();?></td>
 												<td class="text-right"><?php echo $product->getPrice()?></td>
-												<td class="text-right"><input type="text" id="xx" name="xx"
+												<td class="text-right"><input type="text" id="quant" name="quant"
 													value=<?php echo $product->getQty()?> size="1" /></td>
 
 
 												<td class="text-right">
 													<div class="table-data-feature">
-														<button type="button" class="btn btn-secondary mb-1"
-															data-toggle="modal" data-target="#staticModal2"
-															data-placement="top" title="Edit">
+													<form action="system/edit_product.php" method="post">
+														<button type="submit" class="btn btn-secondary mb-1" name="edi" id="edi"
+															data-placement="top" title="Edit" value = <?php echo $product->getBcode();?>>
 															<i class="zmdi zmdi-edit"></i>
 														</button>
+														</form>
 														&nbsp;
-														<button type="button" class="btn btn-secondary mb-1"
-															data-toggle="modal" data-target="#staticModal"
-															data-placement="top" title="Delete">
+														<form action="system/delete_productline.php" method="post">
+														<button type="submit" class="btn btn-secondary mb-1" name="del" id="del"
+															data-placement="top" title="Delete" value = <?php echo $product->getBcode();?>>
 															<i class="zmdi zmdi-delete"></i>
 														</button>
+														</form>
 														&nbsp;
 														<button type="button" class="btn btn-secondary mb-1"
 															data-toggle="modal" data-target="#largeModal"
@@ -159,51 +161,8 @@ $productArr = ProductMgnt::getAllProduct();
 	<script src="vendor/chartjs/Chart.bundle.min.js"></script>
 	<script src="vendor/select2/select2.min.js">
     </script>
-	<div class="modal fade" id="staticModal" tabindex="-1" role="dialog"
-		aria-labelledby="staticModalLabel" aria-hidden="true"
-		data-backdrop="static">
-		<div class="modal-dialog modal-sm" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="staticModalLabel">Confirm to delete?</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-primary">Confirm</button>
-
-					<?php //ProductMgnt::deleteProduct($product->getBcode());?>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="staticModal2" tabindex="-1" role="dialog"
-		aria-labelledby="staticModalLabel" aria-hidden="true"
-		data-backdrop="static">
-		<div class="modal-dialog modal-sm" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="staticModalLabel">Confirm to edit?</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-primary">Confirm</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	
+	
 	<!-- Main JS-->
 	<script src="js/main.js"></script>
 	<div class="modal fade" id="largeModal" tabindex="-1" role="dialog"

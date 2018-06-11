@@ -84,7 +84,7 @@ $page = $_SESSION['PAGE'];
 											<div class="card">
 												<div class="card-header">Add Product</div>
 												<div class="card-body">
-													<form action="system/add_product.php" method="post">
+													<form action="system/add_product.php" method="post" enctype="multipart/form-data">
 														<div class="col-12 col-md-6">
 															<br> <input type="text" id="pname" name="pname"
 																placeholder="Product Name" class="form-control"

@@ -61,6 +61,7 @@ if ( empty($pname) or empty($barcode) or empty($price) or empty($quantity) or em
             }
         }
        ProductMgnt::addProductLine($pname, $barcode, $brand, $size, $color, $price, $description, $quantity, $image);
+       echo "<script> document.location.href=\"../addproduct.php\";</script>";
     } else {
         echo "<script language=\"JavaScript\">";
         echo "alert('Have this product already.')";

@@ -180,7 +180,7 @@ class ProductMgnt
             $result = $query->fetch_assoc();
             $sql = "INSERT INTO ProductLine (BARCODE_ID, PRODUCT_ID, COLOR_ID, SIZE_ID, PRICE, QUANTITY, PRO_images) VALUES ('$Barcode','".$result['ID']."','$color','$size','$price','$quantity','$image')";
            // echo "\n";
-            //echo $sql;
+            //echo $sql; 
             $query = $conn->query($sql);
             
             echo '<script language="javascript">';

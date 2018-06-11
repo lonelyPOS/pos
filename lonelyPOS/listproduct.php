@@ -176,7 +176,7 @@ $productArr = ProductMgnt::getAllProduct();
 					<button type="button" class="btn btn-secondary"
 						data-dismiss="modal">Cancel</button>
 					<button type="button" class="btn btn-primary">Confirm</button>
-					<?php ProductMgnt::deleteProduct($product->getBcode());?>
+					<?php //ProductMgnt::deleteProduct($product->getBcode());?>
 				</div>
 			</div>
 		</div>

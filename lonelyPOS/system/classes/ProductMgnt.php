@@ -62,7 +62,6 @@ class ProductMgnt
         $query = $conn->query($sql);
         $resultArray = array();
         while ($result = $query->fetch_array()) {
-            
             $product = new Product($result['ID'],$result['barid']
                 ,$result['bname'], $result['pname'],$result['cname'],
                 $result['size'],$result['price'],$result['quantity'],
@@ -73,11 +72,11 @@ class ProductMgnt
         return $resultArray;
     }
     
-    public static function checkProduct($name)
+    public static function checkProduct($barcode)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME='" . $name . "' ";
+        $sql = "SELECT * FROM ProductLine WHERE BARCODE_ID='" . $barcode . "' ";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {

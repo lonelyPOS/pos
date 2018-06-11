@@ -80,23 +80,25 @@ $page = $_SESSION['PAGE'];
 										<div class="col-lg-12">
 											<!--panel-->
 											<br>
-
+											
 											<div class="card">
 												<div class="card-header">Add Product</div>
 												<div class="card-body">
+												<form action="system/add_product.php" method="post">
 													<div class="col-12 col-md-6">
-														<input type="Product_ID" id="input2-group3"
-															name="input2-group3" placeholder="Product ID"
-															class="form-control"> <br> <input type="Proname"
-															id="input2-group3" name="input2-group3"
-															placeholder="Product Name" class="form-control"> <br> <input
-															type="barcode" id="input2-group3" name="input2-group3"
-															placeholder="Barcode" class="form-control"> <br>
+														<input type="text" id="Product_ID"
+															name="Product_ID" placeholder="Product ID"
+															class="form-control" required=""> <br> 
+															<input type="text"
+															id="pname" name="pname"
+															placeholder="Product Name" class="form-control" required=""> <br> 
+															<input type="text" id="Barcode" name="Barcode"
+															placeholder="Barcode" class="form-control" required=""> <br>
 
 														<div class="input-group">
-															<input type="brand" id="input2-group3"
-																name="input2-group3" placeholder="Brand"
-																class="form-control">
+															<input type="text" id="Brand"
+																name="Brand" placeholder="Brand"
+																class="form-control" required="">
 															<div class="input-group-btn">
 																<div class="btn-group">
 																	<button type="button" data-toggle="dropdown"
@@ -115,7 +117,7 @@ $page = $_SESSION['PAGE'];
 																</div>
 															</div>
 														</div>
-														<br> <select name="select" id="select size"
+														<br> <select name="size" id="size"
 															class="form-control">
 															<option value="0">Select size</option>
 															<option value="3">XS</option>
@@ -126,9 +128,9 @@ $page = $_SESSION['PAGE'];
 															<option value="5">XXL</option>
 														</select> <br>
 														<div class="input-group">
-															<input type="colors" id="input2-group3"
-																name="input2-group3" placeholder="Colors"
-																class="form-control">
+															<input type="text" id="Colors"
+																name="Colors" placeholder="Colors"
+																class="form-control" required="">
 															<div class="input-group-btn">
 																<div class="btn-group">
 																	<button type="button" data-toggle="dropdown"
@@ -150,36 +152,34 @@ $page = $_SESSION['PAGE'];
 														<br>
 														<div class="row">
 															<div class="col-lg-10">
-																<input type="Price" id="input2-group3"
-																	name="input2-group3" placeholder="Price "
-																	class="form-control">
+																<input type="text" id="Price"
+																	name="Price" placeholder="Price "
+																	class="form-control" required="">
 															</div>
 															<div class="col-lg-2">BATH</div>
 														</div>
-														<br> <input type="Quantity" id="input2-group3"
-															name="input2-group3" placeholder="Quantity"
-															class="form-control"> <br>
+														<br> <input type="text" id="Quantity"
+															name="Quantity" placeholder="Quantity"
+															class="form-control" required=""> <br>
 													</div>
 
 													<div class="col-lg-12">
-														<form action="upload.php" method="post"
-															enctype="multipart/form-data">
+														
 															Select Product image: <input type="file"
-																name="fileToUpload" id="fileToUpload"> <input
-																type="submit" value="Upload Image" name="submit">
-														</form>
+																name="fileToUpload" id="fileToUpload"> 
+														<br><br>
+														<textarea name="Description" id="Description" rows=6
+															 placeholder="Description" class="form-control" required=""></textarea>
 														<br>
-														<textarea name="textarea-input" id="textarea-input" rows=6
-															" placeholder="Description" class="form-control"></textarea>
-
 													</div>
 													<br>
-
-													<button type="button"
-														class="btn btn-primary float-right offset-1 "
-														data-toggle="modal" data-target="#makesure">Confirm</button>
+											
+													<button type="submit"
+														class="btn btn-primary float-right offset-1 ">Confirm</button>
+													</form>
 												</div>
 											</div>
+											
 										</div>
 									</div>
 								</div>
@@ -214,27 +214,7 @@ $page = $_SESSION['PAGE'];
 
 			<!-- Main JS-->
 			<script src="js/main.js"></script>
-			<div class="modal fade" id="makesure" tabindex="-1" role="dialog"
-				aria-labelledby="staticModalLabel" aria-hidden="true"
-				data-backdrop="static">
-				<div class="modal-dialog modal-sm" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="staticModalLabel">Confirm to Add?</h5>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
 
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">Cancel</button>
-							<button type="button" class="btn btn-primary">Confirm</button>
-						</div>
-					</div>
-				</div>
-			</div>
 
 </body>
 

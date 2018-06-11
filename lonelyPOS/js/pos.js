@@ -98,6 +98,29 @@ $(document).ready(function() {
 		$("#nonti_member_not").attr("hidden", "hidden");
 		$("#nonti_barcode_succ").attr("hidden", "hidden");
 		$("#nonti_barcode_not").attr("hidden", "hidden");
+		$('#nonti_update_succ').attr("hidden", "hidden");
+	});
+	
+	$("#cart").on('click', 'button.update-item', function(e) {
+		e.preventDefault(); 
+		$('.up_qty').each(function() {
+	        var qty = $(this).find(".qty-up").val();
+	        var id = $(this).find(".qty-up").attr('data-code');
+			$.ajax({
+				type : "POST",
+				url : "system/update_item.php",
+				data : {
+					qty : qty,
+					pro_id : id
+				},
+				success : function(data) {
+					$("#cart").html(data);
+					$("#total").load('system/total.php');
+					$('#nonti_update_succ').removeAttr("hidden");
+					
+				}
+			});
+	    });
 	});
 	
 	$("#cart").on('click', 'a.remove-item', function(e) {
@@ -148,3 +171,4 @@ function showItemNot() {
 	$('#nonti_barcode_not').removeAttr("hidden");
 	$('#nonti_barcode_succ').attr("hidden", "hidden");
 }
+

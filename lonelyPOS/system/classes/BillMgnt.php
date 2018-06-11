@@ -60,7 +60,7 @@ class BillMgnt
             if ($result) {
                 $bill_id = $result['ID'];
                 $items = $bill->getBillItems();
-                foreach ($items as $item){
+                foreach ($items as $item) {
                     $product_id = $item->getProduct()->getId();
                     $qty = $item->getQty();
                     $sql = "INSERT INTO BillItem (BILL_ID,PRODUCT_LINE_ID,QUANTITY)  VALUES ('$bill_id','$product_id','$qty')";
@@ -69,7 +69,26 @@ class BillMgnt
                 return $bill_id;
             }
         }
-        return -1;
+        return - 1;
+    }
+
+    public static function getAllBill()
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM Bill";
+        $query = $conn->query($sql);
+        $resultArray = array();
+        $count = 0;
+        while ($result = $query->fetch_array()) {
+            $bill = BillMgnt::getBillByBillID($result['ID']);
+            $resultArray[] = $bill;
+            $count ++;
+        }
+        if ($count === 0) {
+            return NULL;
+        }
+        return $resultArray;
     }
 }
 

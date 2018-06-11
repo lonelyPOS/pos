@@ -48,6 +48,14 @@ class Cart
         $this->items = $item_new;
     }
     
+    public function updateItemsById($id,$qty){
+        foreach ($this->items as $cart_item){
+            if($cart_item->getProduct()->getId() === $id){
+                $cart_item->setQty($qty);
+            }
+        }
+    }
+    
     public function getCount(){
         $count = 0;
         foreach ($this->items as $cart_item){
